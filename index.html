@@ -1,37 +1,115 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fisga · Cozinha</title><style>
-:root{--fumo:#0E1013;--graf:#3A4045;--aco:#59626A;--osso:#E9E3D8;--bg:#F4F1EA;--card:#FFFDF9;--linha:#D9D2C4;--guelra:#9E2B22;--serif:Georgia,'Times New Roman',serif;--cond:'Arial Narrow','Roboto Condensed',Arial,sans-serif}
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0E1013">
+<title>Fisga · Cozinha</title>
+<style>
+:root{--fumo:#0E1013;--card:#16191D;--linha:#262B30;--graf:#3A4045;--aco:#8A939A;--gelo:#B9C6CB;--osso:#E9E3D8;--guelra:#9E2B22;--brasa:#C4472F;--serif:Georgia,'Times New Roman',serif;--cond:'Arial Narrow','Roboto Condensed','Helvetica Neue',Arial,sans-serif}
 *{box-sizing:border-box;margin:0;padding:0}
-body{background:var(--bg);color:var(--fumo);font:16px/1.4 system-ui,Roboto,Arial,sans-serif;padding-bottom:40px}
-header{background:var(--fumo);color:var(--osso);padding:18px 16px 12px}
-header h1{font:400 28px var(--serif);letter-spacing:.18em}
-header p{font:13px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:#B9C6CB}
-nav{position:sticky;top:0;z-index:5;background:var(--fumo);border-bottom:3px solid var(--guelra)}
-.row{display:flex;overflow-x:auto;gap:6px;padding:6px 10px}
-button,.btn{font:700 14px var(--cond);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--graf);background:transparent;color:var(--osso);padding:10px 12px;border-radius:4px;white-space:nowrap;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
-.row button[aria-selected=true]{background:var(--guelra);border-color:var(--guelra);color:#fff}
-.turnos button{flex:1}
-.turnos button[aria-selected=true]{background:var(--osso);border-color:var(--osso);color:var(--fumo)}
-main{max-width:680px;margin:0 auto;padding:14px 12px}
-.quem{font:400 22px var(--serif)}
-.pr{font-size:13px;color:var(--aco);margin:4px 0 10px}
-.bar{height:8px;background:var(--linha);border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--guelra)}
-.cont{font-size:13px;color:var(--aco);margin:4px 0}
-h2{font:700 14px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--guelra);margin:20px 0 6px}
-.it{background:var(--card);border:1px solid var(--linha);border-radius:6px;margin-bottom:6px;padding:10px}
-.it label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
-.it input[type=checkbox]{width:24px;height:24px;flex:0 0 24px;accent-color:var(--guelra)}
-.it b{font-weight:600}.it small{display:block;color:var(--aco);font-size:13px}
-.it.ok{opacity:.65}.it.ok b{text-decoration:line-through}
-.tag{display:inline-block;font:700 11px var(--cond);letter-spacing:.1em;background:var(--guelra);color:#fff;padding:1px 6px;border-radius:3px;margin-right:5px}
-.campo{display:flex;align-items:center;gap:8px;margin:8px 0 0 36px;font-size:13px;color:var(--aco)}
-input[type=text],textarea{font:16px system-ui,sans-serif;border:1px solid var(--linha);border-radius:4px;background:#fff;color:var(--fumo);padding:6px 8px;width:100%}
-.campo input{width:130px}
-textarea{min-height:80px}
-.acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
-.acoes .btn,.acoes button{flex:1;background:var(--fumo);color:var(--osso);border-color:var(--fumo)}
-.acoes .sec{background:transparent;color:var(--fumo);border-color:var(--graf)}
-.pedir{display:block;background:var(--fumo);color:var(--osso);margin-top:4px}
-.nota{font-size:13px;color:var(--aco);margin-top:14px}
-#saida{margin-top:10px;display:none;min-height:180px}
-@media print{nav,.acoes,.pedir,.bar,.cont,#saida{display:none!important}body{background:#fff;font-size:12px}header{background:#fff;color:#000;padding:0}header p{color:#000}.it{padding:3px 6px;margin-bottom:2px;break-inside:avoid;opacity:1}main{padding:0;max-width:none}}
-.cd{display:block;color:inherit;text-decoration:none;padding:14px}.off{opacity:.6;border-style:dashed}</style></head><body><header><h1>FISGA</h1><p>Sistema da cozinha · v2 · 26/11/2026</p></header><main><div class="quem">Ferramentas da cozinha</div><div class="pr">Peixe, brasa e vinho · Pinheiros</div><h2>Horários da casa</h2><div class="it"><b>Terça a sábado</b><small>12h às 16h · 18h às 23h</small></div><div class="it"><b>Domingo</b><small>11h às 16h</small></div><div class="it"><b>Segunda</b><small>Fechado</small></div><h2>No ar</h2><a class="it cd" href="checklist.html"><b>Checklist e guia do cozinheiro →</b><small>Praças, passagem, pedidos e como cuidamos</small></a><div class="it cd off"><b>Equipe, organograma e escala</b><small>Fica fora do site aberto; pedir ao Fran</small></div><a class="it cd" href="cardapio.html"><b>Cardápio de abertura →</b><small>Em revisão: testes em andamento</small></a><h2>Próximas</h2><div class="it cd off"><b>Grimório de bases</b><small>Entra com as receitas refeitas</small></div><div class="it cd off"><b>Auditoria de estoque</b><small>Contagem por área e lista de pedidos</small></div><div class="it cd off"><b>Guia de peixes</b><small>Identificação, cortes e brasa</small></div></main></body></html>
+html{background:var(--fumo)}
+body{color:var(--osso);font:16px/1.5 system-ui,Roboto,Arial,sans-serif;max-width:720px;margin:0 auto;-webkit-font-smoothing:antialiased}
+.cap{font:700 12px var(--cond);letter-spacing:.24em;text-transform:uppercase}
+a{color:inherit;text-decoration:none}
+
+.hero{position:relative;padding:44px 22px 30px;overflow:hidden;border-bottom:1px solid var(--linha)}
+.hero:before{content:"";position:absolute;right:-90px;top:-60px;width:300px;height:300px;border-radius:50%;background:radial-gradient(circle,rgba(196,71,47,.22),rgba(196,71,47,0) 70%)}
+.hero .cap{color:var(--gelo)}
+.marca{display:block;width:100%;max-width:330px;height:auto;margin:18px 0 14px}
+.trio{font:400 22px/1.2 var(--serif);font-style:italic;color:var(--osso)}
+.trio i{font-style:normal;color:var(--guelra);padding:0 6px}
+.onde{margin-top:8px;color:var(--aco);font-size:14px}
+
+.manif{padding:26px 22px;border-bottom:1px solid var(--linha)}
+.manif p{font:400 21px/1.35 var(--serif);color:var(--osso)}
+.manif small{display:block;margin-top:10px;color:var(--aco);font-size:14px;line-height:1.45}
+
+.horas{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid var(--linha)}
+.horas div{padding:16px 12px;border-right:1px solid var(--linha)}
+.horas div:last-child{border-right:0}
+.horas .cap{font-size:11px;color:var(--aco);letter-spacing:.16em}
+.horas b{display:block;font:400 17px/1.25 var(--serif);margin-top:4px}
+.horas .off b{color:var(--aco)}
+
+section{padding:26px 16px 8px}
+h2{display:flex;align-items:center;gap:10px;color:var(--guelra);margin:0 6px 14px}
+h2:after{content:"";flex:1;height:1px;background:var(--linha)}
+
+.tool{display:grid;grid-template-columns:52px 1fr 20px;gap:12px;align-items:center;background:var(--card);border:1px solid var(--linha);border-left:4px solid var(--t,var(--graf));border-radius:6px;padding:16px 14px;margin-bottom:10px;transition:border-color .15s,transform .15s}
+a.tool:active{transform:scale(.985)}
+a.tool:hover{border-color:var(--graf)}
+.n{font:400 30px/1 var(--serif);color:var(--t,var(--aco))}
+.tool h3{font:400 20px/1.2 var(--serif);color:var(--osso)}
+.tool p{font-size:13.5px;color:var(--aco);margin-top:3px;line-height:1.4}
+.tag{display:inline-block;margin-top:8px;font:700 10.5px var(--cond);letter-spacing:.16em;text-transform:uppercase;padding:3px 7px;border-radius:3px;border:1px solid var(--t,var(--graf));color:var(--t,var(--aco))}
+.seta{color:var(--t);font-size:20px}
+.brasa{--t:var(--brasa)}.gelo{--t:var(--gelo)}
+.breve{opacity:.62;border-style:dashed;border-left-style:solid}
+.breve .seta{display:none}
+
+.lenda{display:flex;gap:16px;margin:4px 6px 0;color:var(--aco);font-size:12.5px}
+.lenda span:before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px;background:var(--c)}
+
+footer{padding:30px 22px 40px;text-align:center;color:var(--aco);font-size:13px;line-height:1.6}
+footer .cap{color:var(--graf);letter-spacing:.3em;margin-top:14px;display:block}
+@media(min-width:620px){.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}.grid .tool{margin:0}}
+</style></head>
+<body>
+
+<header class="hero">
+  <div class="cap">Sistema da cozinha</div>
+  <svg class="marca" viewBox="0 0 318 82" role="img" aria-label="Fisga">
+    <g fill="#E9E3D8" font-family="Georgia,'Times New Roman',serif" font-size="76" letter-spacing="14">
+      <text x="0" y="72">F</text><text x="106" y="72">SGA</text>
+    </g>
+    <g fill="#9E2B22">
+      <rect x="72" y="20" width="9" height="52"/>
+      <path d="M76.5 0 L89 22 L81 22 L81 16 L72 16 L72 22 L64 22 Z"/>
+    </g>
+  </svg>
+  <div class="trio">peixe<i>·</i>brasa<i>·</i>vinho</div>
+  <div class="onde">Pinheiros · São Paulo · abertura em 01/12/2026</div>
+</header>
+
+<div class="manif">
+  <p>Simplicidade com sabor, delicadeza com verdade, comida com alma.</p>
+  <small>Trabalhar sorrindo, amando o que produz, com sangue no olho para fazer acontecer.</small>
+</div>
+
+<div class="horas">
+  <div><span class="cap">Ter a sáb</span><b>12h–16h<br>18h–23h</b></div>
+  <div><span class="cap">Domingo</span><b>11h–16h</b></div>
+  <div class="off"><span class="cap">Segunda</span><b>Fechado</b></div>
+</div>
+
+<section>
+  <h2 class="cap">No ar</h2>
+  <div class="grid">
+    <a class="tool brasa" href="checklist.html">
+      <span class="n">01</span>
+      <div><h3>Checklist e guia do cozinheiro</h3><p>Praças, passagem de turno, pedidos até a abertura e como cuidamos.</p><span class="tag">Operação</span></div>
+      <span class="seta">→</span>
+    </a>
+    <a class="tool gelo" href="cardapio.html">
+      <span class="n">02</span>
+      <div><h3>Cardápio de abertura</h3><p>Carta por praça. Em revisão com os testes.</p><span class="tag">Carta</span></div>
+      <span class="seta">→</span>
+    </a>
+  </div>
+</section>
+
+<section>
+  <h2 class="cap">Em preparo</h2>
+  <div class="grid">
+    <div class="tool breve brasa"><span class="n">03</span><div><h3>Grimório de bases</h3><p>Fichas das bases, com as receitas refeitas.</p><span class="tag">Produção</span></div><span class="seta"></span></div>
+    <div class="tool breve gelo"><span class="n">04</span><div><h3>Guia de peixes</h3><p>Identificação, cortes e brasa.</p><span class="tag">Pescado</span></div><span class="seta"></span></div>
+    <div class="tool breve"><span class="n">05</span><div><h3>Auditoria de estoque</h3><p>Contagem por área e lista de pedidos.</p><span class="tag">Estoque</span></div><span class="seta"></span></div>
+    <div class="tool breve"><span class="n">06</span><div><h3>Equipe e escala</h3><p>Fora do site aberto. Pedir ao Fran.</p><span class="tag">Interno</span></div><span class="seta"></span></div>
+  </div>
+  <div class="lenda"><span style="--c:var(--brasa)">brasa e quente</span><span style="--c:var(--gelo)">gelo e frio</span></div>
+</section>
+
+<footer>
+  Na dúvida, não serve. Chama o Fran.
+  <span class="cap">Fisga · Pinheiros</span>
+</footer>
+</body></html>
