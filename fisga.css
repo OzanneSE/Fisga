@@ -1,0 +1,73 @@
+/* Fisga · identidade visual (da carta de abertura de 21/11/2026) */
+@font-face{font-family:'Newsreader';src:url(fonts/newsreader-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Newsreader';src:url(fonts/newsreader-latin-500-normal.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Newsreader';src:url(fonts/newsreader-latin-400-italic.woff2) format('woff2');font-weight:400;font-style:italic;font-display:swap}
+@font-face{font-family:'Barlow';src:url(fonts/barlow-latin-400-normal.woff2) format('woff2');font-weight:400;font-display:swap}
+@font-face{font-family:'Barlow';src:url(fonts/barlow-latin-500-normal.woff2) format('woff2');font-weight:500;font-display:swap}
+@font-face{font-family:'Barlow';src:url(fonts/barlow-latin-600-normal.woff2) format('woff2');font-weight:600;font-display:swap}
+@font-face{font-family:'Barlow Condensed';src:url(fonts/barlow-condensed-latin-300-normal.woff2) format('woff2');font-weight:300;font-display:swap}
+@font-face{font-family:'Caveat';src:url(fonts/caveat-latin-500-normal.woff2) format('woff2');font-weight:500;font-display:swap}
+
+:root{
+  --fumo:#0E1013;--osso:#E9E3D8;--gelo:#B9C6CB;--guelra:#9E2B22;
+  --fundo:var(--osso);--tinta:#14171A;--tinta-2:#4A5257;--tinta-3:#6B7378;
+  --regua:#B6AFA3;--frio:#3F6E7C;--fogo:#9E2B22;
+  --serif:'Newsreader',Georgia,serif;--sans:'Barlow',system-ui,sans-serif;
+  --cond:'Barlow Condensed','Arial Narrow',sans-serif;--mao:'Caveat',cursive;
+}
+body.escuro{--fundo:var(--fumo);--tinta:#F2EDE4;--tinta-2:#CDD3D7;--tinta-3:#AEB6BB;--regua:#3A4045;--frio:var(--gelo);--fogo:#C4483C}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--fundo);color:var(--tinta);font-family:var(--serif);-webkit-font-smoothing:antialiased;padding:0 22px 80px}
+a{color:inherit}
+.folha{max-width:640px;margin:0 auto;position:relative}
+
+.marca{display:block;margin:0 auto;width:50px;height:80px}
+.marca line,.marca path{stroke:var(--tinta);fill:none;stroke-linecap:square;stroke-width:2.4}
+.logotipo{font-family:var(--cond);font-weight:300;letter-spacing:.30em;text-indent:.30em;line-height:1;text-align:center;font-size:clamp(46px,11vw,64px)}
+.descritor{font-family:var(--sans);font-weight:500;font-size:11.5px;letter-spacing:.34em;text-indent:.34em;color:var(--tinta-3);text-align:center;margin-top:19px}
+header{padding:58px 0 46px;text-align:center}
+header .marca{margin-bottom:26px}
+.intro{font-family:var(--sans);font-size:16px;line-height:1.55;color:var(--tinta-2);text-align:center;max-width:30em;margin:-14px auto 22px}
+.legenda{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:8px 18px;font-family:var(--sans);font-size:13px;letter-spacing:.06em;color:var(--tinta-3);margin-bottom:52px}
+.legenda span{display:inline-flex;align-items:center;gap:8px}
+.legenda i{display:inline-block;width:2px;height:16px;background:var(--fogo)}
+.legenda i.fr{background:var(--frio)}
+.legenda i.tr{background:none;border-left:2px dashed var(--tinta-3)}
+
+section{padding-left:20px;border-left:2px solid var(--regua);margin-bottom:50px;position:relative}
+section.frio{border-left-color:var(--frio)}
+section.fogo{border-left-color:var(--fogo)}
+section.preparo{border-left-style:dashed}
+.cab{display:flex;align-items:flex-start;gap:11px;margin-bottom:24px}
+.ic{flex:0 0 auto;width:30px;height:30px;margin-top:-3px;fill:none;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;stroke:var(--regua)}
+.ic .cheio{fill:currentColor;stroke:none}
+section.frio .ic{stroke:var(--frio);color:var(--frio)}
+section.fogo .ic{stroke:var(--fogo);color:var(--fogo)}
+h3{font-family:var(--sans);font-weight:600;font-size:14px;letter-spacing:.22em;color:var(--tinta);margin-bottom:2px}
+.subtitulo{font-family:var(--sans);font-size:14px;color:var(--tinta-3)}
+
+.item{margin-bottom:24px;display:block;text-decoration:none}
+.linha{display:flex;justify-content:space-between;align-items:baseline;gap:20px}
+.nome{font-weight:500;font-size:21px;line-height:1.24}
+.preco{font-family:var(--sans);font-weight:500;font-size:17px;white-space:nowrap}
+.desc{font-family:var(--sans);font-size:16px;line-height:1.5;margin-top:4px;max-width:52ch;color:var(--tinta-2)}
+.destaque .nome{font-size:24px}
+.simples{margin-bottom:14px}
+.simples .nome{font-size:19px}
+a.item .preco{color:var(--fogo);letter-spacing:.08em;font-size:13px;text-transform:uppercase}
+section.frio a.item .preco{color:var(--frio)}
+a.item:active .nome{text-decoration:underline;text-underline-offset:4px}
+.etiqueta{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.14em;color:var(--tinta-3);margin-left:8px;vertical-align:2px;text-transform:uppercase}
+.preparo .item{opacity:.72}
+
+.ilustra{width:100%;height:100%;display:block;fill:none;stroke:var(--fogo);stroke-width:2.6;stroke-linecap:round;stroke-linejoin:round}
+.ilustra .cheio{fill:var(--fogo);stroke:none}
+.rodape-ilustra{display:flex;align-items:center;gap:18px;margin:-18px 0 42px;padding-left:20px}
+.rodape-ilustra .marg{opacity:.24}
+.nota{white-space:nowrap;font-family:var(--mao);font-weight:500;font-size:24px;color:var(--fogo);transform:rotate(-3deg);opacity:.92}
+.manifesto{font-family:var(--mao);font-weight:500;font-size:28px;line-height:1.25;color:var(--fogo);text-align:center;margin:10px 0 56px;transform:rotate(-2deg)}
+
+footer{border-top:1px solid var(--regua);padding-top:26px;margin-top:12px;font-family:var(--sans);font-size:14px;line-height:1.75;color:var(--tinta-2)}
+.assinatura{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.26em;color:var(--tinta-3);margin-top:18px}
+.alternar{position:fixed;top:14px;right:14px;font-family:var(--sans);font-weight:500;font-size:12px;letter-spacing:.12em;background:var(--fundo);color:var(--tinta-3);border:1px solid var(--regua);padding:7px 13px;border-radius:2px;cursor:pointer;z-index:10}
+@media print{.alternar{display:none}}
