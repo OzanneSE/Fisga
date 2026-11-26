@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fisga · Cardápio</title><style>
+:root{--fumo:#0E1013;--graf:#3A4045;--aco:#59626A;--osso:#E9E3D8;--bg:#F4F1EA;--card:#FFFDF9;--linha:#D9D2C4;--guelra:#9E2B22;--serif:Georgia,'Times New Roman',serif;--cond:'Arial Narrow','Roboto Condensed',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fumo);font:16px/1.4 system-ui,Roboto,Arial,sans-serif;padding-bottom:40px}
+header{background:var(--fumo);color:var(--osso);padding:18px 16px 12px}
+header h1{font:400 28px var(--serif);letter-spacing:.18em}
+header p{font:13px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:#B9C6CB}
+nav{position:sticky;top:0;z-index:5;background:var(--fumo);border-bottom:3px solid var(--guelra)}
+.row{display:flex;overflow-x:auto;gap:6px;padding:6px 10px}
+button,.btn{font:700 14px var(--cond);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--graf);background:transparent;color:var(--osso);padding:10px 12px;border-radius:4px;white-space:nowrap;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.row button[aria-selected=true]{background:var(--guelra);border-color:var(--guelra);color:#fff}
+.turnos button{flex:1}
+.turnos button[aria-selected=true]{background:var(--osso);border-color:var(--osso);color:var(--fumo)}
+main{max-width:680px;margin:0 auto;padding:14px 12px}
+.quem{font:400 22px var(--serif)}
+.pr{font-size:13px;color:var(--aco);margin:4px 0 10px}
+.bar{height:8px;background:var(--linha);border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--guelra)}
+.cont{font-size:13px;color:var(--aco);margin:4px 0}
+h2{font:700 14px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--guelra);margin:20px 0 6px}
+.it{background:var(--card);border:1px solid var(--linha);border-radius:6px;margin-bottom:6px;padding:10px}
+.it label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.it input[type=checkbox]{width:24px;height:24px;flex:0 0 24px;accent-color:var(--guelra)}
+.it b{font-weight:600}.it small{display:block;color:var(--aco);font-size:13px}
+.it.ok{opacity:.65}.it.ok b{text-decoration:line-through}
+.tag{display:inline-block;font:700 11px var(--cond);letter-spacing:.1em;background:var(--guelra);color:#fff;padding:1px 6px;border-radius:3px;margin-right:5px}
+.campo{display:flex;align-items:center;gap:8px;margin:8px 0 0 36px;font-size:13px;color:var(--aco)}
+input[type=text],textarea{font:16px system-ui,sans-serif;border:1px solid var(--linha);border-radius:4px;background:#fff;color:var(--fumo);padding:6px 8px;width:100%}
+.campo input{width:130px}
+textarea{min-height:80px}
+.acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.acoes .btn,.acoes button{flex:1;background:var(--fumo);color:var(--osso);border-color:var(--fumo)}
+.acoes .sec{background:transparent;color:var(--fumo);border-color:var(--graf)}
+.pedir{display:block;background:var(--fumo);color:var(--osso);margin-top:4px}
+.nota{font-size:13px;color:var(--aco);margin-top:14px}
+#saida{margin-top:10px;display:none;min-height:180px}
+@media print{nav,.acoes,.pedir,.bar,.cont,#saida{display:none!important}body{background:#fff;font-size:12px}header{background:#fff;color:#000;padding:0}header p{color:#000}.it{padding:3px 6px;margin-bottom:2px;break-inside:avoid;opacity:1}main{padding:0;max-width:none}}
+</style></head><body><header><a href="index.html" style="color:#B9C6CB;font-size:13px">← Ferramentas</a><h1>FISGA</h1><p>Cardápio de abertura · em revisão · 26/11/2026</p></header><main><div class="quem">Cardápio de abertura</div><div class="pr">Base: carta de 21/11. Em revisão. Divisão por praça é proposta.</div><h2>No gelo</h2><div class="pr">Garde-manger</div><div class="it"><b>Crudo do dia</b></div><div class="it"><b>Tiradito de tucupi</b></div><div class="it"><b>Tartar de atum no patacone</b></div><div class="it"><b>Caviar de esturjão</b></div><h2>Primeiro na brasa</h2><div class="pr">Grelha</div><div class="it"><b>Espeto de camarão</b></div><div class="it"><b>Espeto de lula</b></div><div class="it"><b>Espeto de polvo</b></div><div class="it"><b>Espeto misto, camarão e polvo</b></div><div class="it"><b>Espetinho de ventrecha</b></div><div class="it"><b>Espeto de cogumelo eryngii</b></div><h2>Quentes e balcão</h2><div class="pr">Entremetier · polvo com a grelha</div><div class="it"><b>Pão de camarão, receita do Gerônimo Athuel</b></div><div class="it"><b>Camarão na frigideira</b></div><div class="it"><b>Lula à dorê</b></div><div class="it"><b>Trio de fish sliders</b></div><div class="it"><b>Mexilhão na panelinha</b></div><div class="it"><b>Sanduíche de polvo</b></div><div class="it"><b>Sanduíche de vieira</b></div><div class="it"><b>Pele crocante</b></div><h2>Da brasa</h2><div class="pr">Grelha</div><div class="it"><b>Peixe na brasa P, M e G</b></div><div class="it"><b>Polvo grelhado para dividir</b></div><div class="it"><b>Ancho na brasa</b></div><h2>Da panela</h2><div class="pr">Entremetier</div><div class="it"><b>Espaguete alle vongole</b></div><div class="it"><b>Caldeirada na panela de barro</b></div><h2>Da horta</h2><div class="pr">Garde-manger · brasa com a grelha</div><div class="it"><b>Salada niçoise</b></div><div class="it"><b>Brócolis grelhado com batatas douradas</b></div><div class="it"><b>Palmito pupunha</b></div><div class="it"><b>Salada verde</b></div><h2>Para acompanhar</h2><div class="pr">Entremetier · salada com o garde-manger · legumes com a grelha</div><div class="it"><b>Salada de batata com camarão</b></div><div class="it"><b>Purê de banana-da-terra</b></div><div class="it"><b>Arroz verde</b></div><div class="it"><b>Arroz laranja</b></div><div class="it"><b>Farofa de cebola e dendê</b></div><div class="it"><b>Batata frita</b></div><div class="it"><b>Arroz branco</b></div><div class="it"><b>Purê de batata</b></div><div class="it"><b>Legumes grelhados</b></div><h2>Doces</h2><div class="pr">Confeitaria · saída com o garde-manger</div><div class="it"><b>Pudim de leite queimado</b></div><div class="it"><b>Sorbet de limão siciliano</b></div><div class="it"><b>Torta basca de avelã</b></div><div class="it"><b>Namelaka</b></div><div class="it"><b>Banana-da-terra na brasa</b></div><h2>Almoço executivo</h2><div class="it"><b>Entrada</b><small>Croqueta de peixe, salada ou caldo de peixe</small></div><div class="it"><b>Principal</b><small>Peixe empanado, meio chorizo ou massa com cogumelos</small></div><div class="it"><b>Acompanhamento</b><small>Arroz, arroz de cenoura ou purê do dia; legumes ou batata chips</small></div><div class="it"><b>Sobremesa</b><small>Doce do dia, sorvete de limão, fruta ou pudinzinho</small></div></main></body></html>

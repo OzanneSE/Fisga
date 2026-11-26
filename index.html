@@ -1,0 +1,37 @@
+<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fisga · Cozinha</title><style>
+:root{--fumo:#0E1013;--graf:#3A4045;--aco:#59626A;--osso:#E9E3D8;--bg:#F4F1EA;--card:#FFFDF9;--linha:#D9D2C4;--guelra:#9E2B22;--serif:Georgia,'Times New Roman',serif;--cond:'Arial Narrow','Roboto Condensed',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--fumo);font:16px/1.4 system-ui,Roboto,Arial,sans-serif;padding-bottom:40px}
+header{background:var(--fumo);color:var(--osso);padding:18px 16px 12px}
+header h1{font:400 28px var(--serif);letter-spacing:.18em}
+header p{font:13px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:#B9C6CB}
+nav{position:sticky;top:0;z-index:5;background:var(--fumo);border-bottom:3px solid var(--guelra)}
+.row{display:flex;overflow-x:auto;gap:6px;padding:6px 10px}
+button,.btn{font:700 14px var(--cond);letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--graf);background:transparent;color:var(--osso);padding:10px 12px;border-radius:4px;white-space:nowrap;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+.row button[aria-selected=true]{background:var(--guelra);border-color:var(--guelra);color:#fff}
+.turnos button{flex:1}
+.turnos button[aria-selected=true]{background:var(--osso);border-color:var(--osso);color:var(--fumo)}
+main{max-width:680px;margin:0 auto;padding:14px 12px}
+.quem{font:400 22px var(--serif)}
+.pr{font-size:13px;color:var(--aco);margin:4px 0 10px}
+.bar{height:8px;background:var(--linha);border-radius:4px;overflow:hidden}.bar i{display:block;height:100%;background:var(--guelra)}
+.cont{font-size:13px;color:var(--aco);margin:4px 0}
+h2{font:700 14px var(--cond);letter-spacing:.14em;text-transform:uppercase;color:var(--guelra);margin:20px 0 6px}
+.it{background:var(--card);border:1px solid var(--linha);border-radius:6px;margin-bottom:6px;padding:10px}
+.it label{display:flex;gap:12px;align-items:flex-start;cursor:pointer}
+.it input[type=checkbox]{width:24px;height:24px;flex:0 0 24px;accent-color:var(--guelra)}
+.it b{font-weight:600}.it small{display:block;color:var(--aco);font-size:13px}
+.it.ok{opacity:.65}.it.ok b{text-decoration:line-through}
+.tag{display:inline-block;font:700 11px var(--cond);letter-spacing:.1em;background:var(--guelra);color:#fff;padding:1px 6px;border-radius:3px;margin-right:5px}
+.campo{display:flex;align-items:center;gap:8px;margin:8px 0 0 36px;font-size:13px;color:var(--aco)}
+input[type=text],textarea{font:16px system-ui,sans-serif;border:1px solid var(--linha);border-radius:4px;background:#fff;color:var(--fumo);padding:6px 8px;width:100%}
+.campo input{width:130px}
+textarea{min-height:80px}
+.acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.acoes .btn,.acoes button{flex:1;background:var(--fumo);color:var(--osso);border-color:var(--fumo)}
+.acoes .sec{background:transparent;color:var(--fumo);border-color:var(--graf)}
+.pedir{display:block;background:var(--fumo);color:var(--osso);margin-top:4px}
+.nota{font-size:13px;color:var(--aco);margin-top:14px}
+#saida{margin-top:10px;display:none;min-height:180px}
+@media print{nav,.acoes,.pedir,.bar,.cont,#saida{display:none!important}body{background:#fff;font-size:12px}header{background:#fff;color:#000;padding:0}header p{color:#000}.it{padding:3px 6px;margin-bottom:2px;break-inside:avoid;opacity:1}main{padding:0;max-width:none}}
+.cd{display:block;color:inherit;text-decoration:none;padding:14px}.off{opacity:.6;border-style:dashed}</style></head><body><header><h1>FISGA</h1><p>Sistema da cozinha · v2 · 26/11/2026</p></header><main><div class="quem">Ferramentas da cozinha</div><div class="pr">Peixe, brasa e vinho · Pinheiros</div><h2>Horários da casa</h2><div class="it"><b>Terça a sábado</b><small>12h às 16h · 18h às 23h</small></div><div class="it"><b>Domingo</b><small>11h às 16h</small></div><div class="it"><b>Segunda</b><small>Fechado</small></div><h2>No ar</h2><a class="it cd" href="checklist.html"><b>Checklist e guia do cozinheiro →</b><small>Praças, passagem, pedidos e como cuidamos</small></a><div class="it cd off"><b>Equipe, organograma e escala</b><small>Fica fora do site aberto; pedir ao Fran</small></div><a class="it cd" href="cardapio.html"><b>Cardápio de abertura →</b><small>Em revisão: testes em andamento</small></a><h2>Próximas</h2><div class="it cd off"><b>Grimório de bases</b><small>Entra com as receitas refeitas</small></div><div class="it cd off"><b>Auditoria de estoque</b><small>Contagem por área e lista de pedidos</small></div><div class="it cd off"><b>Guia de peixes</b><small>Identificação, cortes e brasa</small></div></main></body></html>
