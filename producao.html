@@ -54,29 +54,31 @@ summary small{font-family:var(--sans);font-size:12.5px;color:var(--tinta-3);marg
 textarea{font:15px var(--sans);width:100%;min-height:160px;border:1px solid var(--regua);background:transparent;color:var(--tinta);padding:8px;margin-top:10px;display:none}
 </style></head>
 <body>
-<header><svg class="marca" viewBox="0 0 60 96" aria-hidden="true"><line x1="30" y1="6" x2="30" y2="88"/><path d="M14 18 L14 62 L30 88 L46 62 L46 18"/><line x1="14" y1="36" x2="19.5" y2="43"/><line x1="46" y1="36" x2="40.5" y2="43"/><line x1="30" y1="27" x2="35" y2="34"/></svg><div><div class="logo">FISGA</div><div class="sub">Produção · v3 · 26/11</div></div><a class="volta" href="index.html">← INÍCIO</a></header>
+<header><svg class="marca" viewBox="0 0 60 96" aria-hidden="true"><line x1="30" y1="6" x2="30" y2="88"/><path d="M14 18 L14 62 L30 88 L46 62 L46 18"/><line x1="14" y1="36" x2="19.5" y2="43"/><line x1="46" y1="36" x2="40.5" y2="43"/><line x1="30" y1="27" x2="35" y2="34"/></svg><div><div class="logo">FISGA</div><div class="sub">Produção · v4 · 26/11</div></div><a class="volta" href="index.html">← INÍCIO</a></header>
 <nav><div class="row" id="tabs"></div></nav>
 <main id="m"></main>
 <script>
 try{if(localStorage.getItem('fisga_tema')==='e')document.body.classList.add('escuro')}catch(x){}
-var CAT={pescado:['Pescado',1],frutos:['Frutos do mar',2],horti:['Hortifrúti',7],lat:['Laticínios e ovos',3],seco:['Seco e mercearia',15],pao:['Padaria',1],casa:['Feito na casa',0]};
+var CAT={pescado:['Pescado',1],frutos:['Frutos do mar',2],horti:['Hortifrúti',7],lat:['Laticínios e ovos',3],seco:['Seco e mercearia',15],pao:['Padaria',1],carnes:['Carnes',3],casa:['Feito na casa',0]};
 var PRACA={G:'Grelha',GM:'Garde-manger',E:'Entremetier',C:'Confeitaria'};
 // insumo: [categoria, unidade]
 var INS={};
 function I(c,u,l){l.forEach(function(n){INS[n]=[c,u]})}
 I('pescado','g',['Peixe do dia (lombo, cru)','Peixe do dia (porção na brasa)','Peixe dos sliders','Atum','Ventrecha','Carapau ou anchova','Peixe da caldeirada']);
 I('frutos','g',['Camarão grande','Camarão','Lula','Polvo cru','Mexilhão','Vôngole','Vieira']);
+I('carnes','g',['Ancho']);
 I('frutos','un',['Caviar de esturjão, lata 15 g']);
 I('horti','g',['Limão','Cebola roxa','Cebola','Ciboulette','Cebolinha','Coentro','Hortelã','Salsa','Alho','Tomate','Rúcula','Alface','Agrião','Folhas','Funcho','Pepino','Brócolis','Talos e folhas de brócolis','Batata','Banana-da-terra','Cogumelo eryngii','Palmito pupunha','Legumes da estação','Gengibre','Pimenta de cheiro']);
 I('lat','g',['Manteiga','Queijo coalho']);I('lat','ml',['Leite']);I('lat','un',['Ovo']);
 I('seco','g',['Panko','Farinha de trigo','Furikake','Missô','Azeitona preta','Espaguete','Açafrão','Farinha de mandioca','Semente de abóbora','Arroz carnaroli','Arroz branco','Melaço','Flor de sal']);
 I('seco','ml',['Azeite','Vinho branco','Dendê','Óleo de cozinha','Cerveja lager','Caldo de legumes']);
 I('pao','un',['Pão preto','Brioche','Pão dos sliders','Pão do mexilhão']);
-I('casa','g',['Patacone','Molho de ervas e Dijon','Aioli de sumac','Vinagrete de pimenta de cheiro','Manteiga de camarão','Molho tártaro','Aioli de tahine negro','Creme de abacate','Aioli de vinho branco e pimenta de cheiro','Manteiga de ervas','Vinagrete de tangerina','Arroz base cozido','Mole verde','Base de moqueca','Maionese da casa','Tomate assado']);
+I('casa','g',['Patacone','Molho de ervas e Dijon','Aioli de sumac','Vinagrete de pimenta de cheiro','Manteiga de camarão','Molho tártaro','Aioli de tahine negro','Creme de abacate','Aioli de vinho branco e pimenta de cheiro','Manteiga de ervas','Vinagrete de tangerina','Arroz base cozido','Mole verde','Base de moqueca','Maionese da casa','Tomate assado','Polvo cozido']);
 I('casa','ml',['Leite de tigre de tucupi','Caldo de peixe','Azeite vermelho']);
-var BPRACA={'Patacone':'E','Molho de ervas e Dijon':'GM','Aioli de sumac':'GM','Vinagrete de pimenta de cheiro':'GM','Manteiga de camarão':'E','Molho tártaro':'GM','Aioli de tahine negro':'GM','Creme de abacate':'GM','Aioli de vinho branco e pimenta de cheiro':'GM','Manteiga de ervas':'G','Vinagrete de tangerina':'GM','Arroz base cozido':'E','Mole verde':'E','Base de moqueca':'E','Maionese da casa':'GM','Tomate assado':'E','Leite de tigre de tucupi':'GM','Caldo de peixe':'E','Azeite vermelho':'GM'};
+var BPRACA={'Patacone':'E','Molho de ervas e Dijon':'GM','Aioli de sumac':'GM','Vinagrete de pimenta de cheiro':'GM','Manteiga de camarão':'E','Molho tártaro':'GM','Aioli de tahine negro':'GM','Creme de abacate':'GM','Aioli de vinho branco e pimenta de cheiro':'GM','Manteiga de ervas':'G','Vinagrete de tangerina':'GM','Arroz base cozido':'E','Mole verde':'E','Base de moqueca':'E','Maionese da casa':'GM','Tomate assado':'E','Polvo cozido':'E','Leite de tigre de tucupi':'GM','Caldo de peixe':'E','Azeite vermelho':'GM'};
 // lotes conhecidos (receita de 16/11); rendimento a pesar
 var LOTE={'Mole verde':[['Talos e folhas de brócolis',500],['Cebola',100],['Alho',40],['Semente de abóbora',80],['Gengibre',5],['Cebolinha',100],['Coentro',100],['Pimenta de cheiro',null]],
+'Polvo cozido':[['Polvo cru',1000]],
 'Arroz base cozido':[['Arroz carnaroli',1000],['Óleo de cozinha',80],['Cerveja lager',300],['Caldo de legumes',700]]};
 var N=null;
 // prato: [id,nome,praça,mix por 100 pax,serviço,ficha,nota]
@@ -87,25 +89,25 @@ var PR=[
 ['caviar','Caviar de esturjão','GM',1,'AJ',[['Caviar de esturjão, lata 15 g',1]]],
 ['e_cam','Espeto de camarão','G',8,'AJ',[['Camarão grande',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
 ['e_lula','Espeto de lula','G',5,'AJ',[['Lula',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
-['e_polvo','Espeto de polvo','G',6,'AJ',[['Polvo cru',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
-['e_misto','Espeto misto','G',6,'AJ',[['Camarão grande',N],['Polvo cru',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
+['e_polvo','Espeto de polvo','G',6,'AJ',[['Polvo cozido',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
+['e_misto','Espeto misto','G',6,'AJ',[['Camarão grande',N],['Lula',40],['Polvo cozido',20],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
 ['e_ventr','Espetinho de ventrecha','G',6,'AJ',[['Ventrecha',N],['Vinagrete de pimenta de cheiro',N]]],
 ['e_eryn','Espeto de cogumelo eryngii','G',3,'AJ',[['Cogumelo eryngii',N],['Missô',N],['Azeite',N],['Limão',N]]],
 ['pao_cam','Pão de camarão','E',15,'AJ',[],'Ficha a receber no teste com o autor da receita'],
 ['cam_frig','Camarão na frigideira','E',6,'AJ',[['Camarão',N],['Manteiga de camarão',N]]],
 ['lula_dore','Lula à dorê','E',10,'AJ',[['Lula',N],['Farinha de trigo',N],['Ovo',N],['Molho tártaro',N],['Limão',N]]],
-['sliders','Trio de fish sliders','E',8,'AJ',[['Peixe dos sliders',N],['Panko',N],['Pão dos sliders',3],['Aioli de tahine negro',N],['Creme de abacate',N],['Cebola roxa',N],['Hortelã',N],['Limão',N]]],
+['sliders','Trio de fish sliders','E',8,'AJ',[['Peixe dos sliders',120],['Panko',N],['Pão dos sliders',3],['Aioli de tahine negro',N],['Creme de abacate',N],['Cebola roxa',N],['Hortelã',N],['Limão',N]]],
 ['mexilhao','Mexilhão na panelinha','E',5,'AJ',[['Mexilhão',N],['Vinho branco',N],['Manteiga',N],['Alho',N],['Salsa',N],['Pão do mexilhão',N]]],
-['s_polvo','Sanduíche de polvo','E',6,'AJ',[['Pão preto',1],['Polvo cru',N],['Aioli de sumac',N],['Cebola',N],['Tomate assado',N],['Rúcula',N]],'Polvo com a grelha'],
+['s_polvo','Sanduíche de polvo','E',6,'AJ',[['Pão preto',1],['Polvo cozido',N],['Aioli de sumac',N],['Cebola',N],['Tomate assado',N],['Rúcula',N]],'Polvo com a grelha'],
 ['s_vieira','Sanduíche de vieira','E',4,'AJ',[['Vieira',80],['Brioche',1],['Aioli de vinho branco e pimenta de cheiro',N],['Funcho',N],['Pepino',N]]],
 ['pele','Pele crocante','E',6,'AJ',[],'A pele vem do peixe do dia'],
 ['peixe_p','Peixe na brasa P','G',8,'AJ',[['Peixe do dia (porção na brasa)',N],['Limão',N],['Azeite',N]],'Guarnições à parte'],
 ['peixe_m','Peixe na brasa M','G',10,'AJ',[['Peixe do dia (porção na brasa)',N],['Limão',N],['Azeite',N]],'Guarnições à parte'],
 ['peixe_g','Peixe na brasa G','G',4,'AJ',[['Peixe do dia (porção na brasa)',N],['Limão',N],['Azeite',N]],'Guarnições à parte'],
-['polvo','Polvo grelhado','G',6,'AJ',[['Polvo cru',N],['Azeite vermelho',N]],'Sai sozinho; purê à parte'],
-['ancho','Ancho na brasa','G',5,'AJ',[['Manteiga de ervas',N]],'Carne: insumo a definir'],
+['polvo','Polvo grelhado','G',6,'AJ',[['Polvo cozido',N],['Azeite vermelho',N]],'Sai sozinho; purê à parte'],
+['ancho','Ancho na brasa','G',5,'AJ',[['Ancho',260],['Manteiga de ervas',N]]],
 ['vongole','Espaguete alle vongole','E',5,'AJ',[['Vôngole',N],['Espaguete',N],['Alho',N],['Vinho branco',N],['Azeite',N]]],
-['caldeirada','Caldeirada na panela de barro','E',3,'AJ',[['Peixe da caldeirada',N],['Tomate',N],['Açafrão',N],['Vinho branco',N],['Caldo de peixe',N]]],
+['caldeirada','Caldeirada na panela de barro','E',3,'AJ',[['Peixe da caldeirada',N],['Tomate',N],['Açafrão',N],['Vinho branco',N],['Caldo de peixe',N]],'Filé marcado na brasa termina no caldo rico da cabeça'],
 ['nicoise','Salada niçoise','GM',5,'AJ',[['Carapau ou anchova',N],['Ovo',N],['Azeitona preta',N],['Folhas',N],['Vinagrete de tangerina',N]]],
 ['brocolis','Brócolis grelhado com batatas','G',4,'AJ',[['Brócolis',N],['Batata',N]]],
 ['palmito','Palmito pupunha','G',4,'AJ',[['Palmito pupunha',N],['Manteiga',N],['Limão',N]]],
@@ -239,7 +241,7 @@ function vFic(m){titulo(m,'Fichas para o cálculo','Quantidade de cada insumo po
  m.appendChild(E('h2',{class:'fr'},'Lotes das bases'));Object.keys(LOTE).forEach(function(b){var dd=E('details'),su=E('summary',{},b);su.appendChild(E('small',{},rend(b)?'rende '+fmt(rend(b),'g'):'falta o rendimento'));dd.appendChild(su);
   var r0=E('div',{class:'fi'});r0.appendChild(E('div',{},'Rendimento do lote'));r0.appendChild(num(rend(b),function(v){S.rend[b]=v},'pesar'));r0.appendChild(E('i',{},'g'));dd.appendChild(r0);
   LOTE[b].forEach(function(x,i){var r=E('div',{class:'fi'});r.appendChild(E('div',{},x[0]));r.appendChild(num(lq(b,i),function(v){S.fic[b+'|'+i]=v},'—'));r.appendChild(E('i',{},INS[x[0]][1]));dd.appendChild(r)});m.appendChild(dd)});
- m.appendChild(E('p',{class:'rodape'},'Mole verde: no fim entram também 100 g de óleo verde, que é base da casa. Arroz base: receita do lote de 16/11; pesar o cozido para o rendimento.'))}
+ m.appendChild(E('p',{class:'rodape'},'Mole verde: no fim entram também 100 g de óleo verde, que é base da casa. Arroz base: receita do lote de 16/11; pesar o cozido para o rendimento. Polvo cozido: pesar quanto 1 kg de polvo cru rende depois de cozido.'))}
 desenha();
 </script>
 </body></html>
