@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#E9E3D8">
+<title>Fisga · Produção e pedidos</title>
+<link rel="stylesheet" href="fisga.css">
+<style>
+body{padding:0 0 60px}
+header{padding:22px 18px 16px;display:flex;align-items:center;gap:14px;text-align:left}
+header .marca{width:26px;height:42px;margin:0}
+header .marca line,header .marca path{stroke-width:3}
+.logo{font-family:var(--cond);font-weight:300;font-size:30px;letter-spacing:.3em;line-height:1}
+.sub{font-family:var(--sans);font-weight:500;font-size:10.5px;letter-spacing:.24em;color:var(--tinta-3);margin-top:6px;text-transform:uppercase}
+.volta{white-space:nowrap;margin-left:auto;align-self:flex-start;font-family:var(--sans);font-size:12px;letter-spacing:.12em;color:var(--tinta-3);text-decoration:none;border:1px solid var(--regua);padding:6px 10px;border-radius:2px}
+nav{position:sticky;top:0;z-index:5;background:var(--fundo);border-bottom:2px solid var(--fogo)}
+.row{display:flex;overflow-x:auto;gap:6px;padding:7px 12px;scrollbar-width:none}
+button,.btn{font:600 12.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--regua);background:transparent;color:var(--tinta-2);padding:10px 12px;border-radius:2px;white-space:nowrap;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+nav button[aria-selected=true]{background:var(--fogo);border-color:var(--fogo);color:#F2EDE4}
+main{max-width:640px;margin:0 auto;padding:22px 18px}
+.quem{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.2}
+.pr{font-family:var(--sans);font-size:14.5px;line-height:1.45;color:var(--tinta-3);margin:6px 0 14px}
+h2{font:600 12.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--fogo);margin:30px 0 4px;padding-left:12px;border-left:2px solid var(--fogo)}
+h2.fr{color:var(--frio);border-color:var(--frio)}
+.l{display:flex;align-items:center;gap:12px;border-bottom:1px solid var(--regua);padding:10px 0}
+.l .t{flex:1;min-width:0}
+.l b{font-family:var(--serif);font-weight:500;font-size:17.5px;line-height:1.25;display:block}
+.l small{display:block;font-family:var(--sans);font-size:13px;color:var(--tinta-3);margin-top:1px}
+.q{font-family:var(--sans);font-weight:600;font-size:18px;white-space:nowrap;text-align:right}
+.q span{font-weight:400;font-size:13px;color:var(--tinta-3)}
+.l input[type=checkbox]{width:22px;height:22px;flex:0 0 22px;accent-color:var(--fogo)}
+.l.ok b{text-decoration:line-through;color:var(--tinta-3)}
+input[type=number],input[type=date],input[type=text]{font:16px var(--sans);border:1px solid var(--regua);border-radius:2px;background:transparent;color:var(--tinta);padding:7px 8px;width:84px;text-align:right}
+input[type=date]{width:auto;text-align:left}
+.campo{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--regua);font-family:var(--sans);font-size:15px;color:var(--tinta-2)}
+.dia{display:grid;grid-template-columns:1fr 84px 84px;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid var(--regua);font-family:var(--sans);font-size:15px}
+.dia.cab2{font-size:11.5px;letter-spacing:.16em;color:var(--tinta-3);text-transform:uppercase;border:0}
+.dia .x{text-align:center;color:var(--tinta-3)}
+.tot{font-family:var(--sans);font-size:14px;color:var(--tinta-2);margin-top:10px}
+.acoes{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+.acoes .btn,.acoes button{flex:1}
+.cheio2{background:var(--tinta)!important;color:var(--fundo)!important;border-color:var(--tinta)!important}
+.aviso{font-family:var(--sans);font-size:14px;line-height:1.5;color:var(--tinta-2);border-left:2px dashed var(--fogo);padding:6px 0 6px 12px;margin:14px 0}
+.falta{font-family:var(--sans);font-size:13.5px;color:var(--tinta-2);line-height:1.5}
+.rodape{font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--tinta-3);margin-top:20px}
+.ped{display:grid;grid-template-columns:1fr auto 84px;gap:10px;align-items:center;border-bottom:1px solid var(--regua);padding:9px 0}
+.ped b{font-family:var(--serif);font-weight:500;font-size:17px}
+.ped small{display:block;font-family:var(--sans);font-size:12.5px;color:var(--tinta-3)}
+.zero{opacity:.5}
+details{border-bottom:1px solid var(--regua);padding:10px 0}
+summary{font-family:var(--serif);font-weight:500;font-size:17.5px;cursor:pointer}
+summary small{font-family:var(--sans);font-size:12.5px;color:var(--tinta-3);margin-left:6px}
+.fi{display:grid;grid-template-columns:1fr 84px 34px;gap:8px;align-items:center;padding:5px 0 5px 10px;font-family:var(--sans);font-size:14.5px;color:var(--tinta-2)}
+.fi i{font-style:normal;color:var(--tinta-3);font-size:12.5px}
+textarea{font:15px var(--sans);width:100%;min-height:160px;border:1px solid var(--regua);background:transparent;color:var(--tinta);padding:8px;margin-top:10px;display:none}
+</style></head>
+<body>
+<header><svg class="marca" viewBox="0 0 60 96" aria-hidden="true"><line x1="30" y1="6" x2="30" y2="88"/><path d="M14 18 L14 62 L30 88 L46 62 L46 18"/><line x1="14" y1="36" x2="19.5" y2="43"/><line x1="46" y1="36" x2="40.5" y2="43"/><line x1="30" y1="27" x2="35" y2="34"/></svg><div><div class="logo">FISGA</div><div class="sub">Produção · v1 · 26/11</div></div><a class="volta" href="index.html">← INÍCIO</a></header>
+<nav><div class="row" id="tabs"></div></nav>
+<main id="m"></main>
+<script>
+try{if(localStorage.getItem('fisga_tema')==='e')document.body.classList.add('escuro')}catch(x){}
+var CAT={pescado:['Pescado',1],frutos:['Frutos do mar',2],horti:['Hortifrúti',7],lat:['Laticínios e ovos',3],seco:['Seco e mercearia',15],pao:['Padaria',1],casa:['Feito na casa',0]};
+var PRACA={G:'Grelha',GM:'Garde-manger',E:'Entremetier',C:'Confeitaria'};
+// insumo: [categoria, unidade]
+var INS={};
+function I(c,u,l){l.forEach(function(n){INS[n]=[c,u]})}
+I('pescado','g',['Peixe do dia (lombo, cru)','Peixe do dia (porção na brasa)','Peixe dos sliders','Atum','Ventrecha','Carapau ou anchova','Peixe da caldeirada']);
+I('frutos','g',['Camarão grande','Camarão','Lula','Polvo cru','Mexilhão','Vôngole','Vieira']);
+I('frutos','un',['Caviar de esturjão, lata 15 g']);
+I('horti','g',['Limão','Cebola roxa','Cebola','Ciboulette','Cebolinha','Coentro','Hortelã','Salsa','Alho','Tomate','Rúcula','Alface','Agrião','Folhas','Funcho','Pepino','Brócolis','Talos e folhas de brócolis','Batata','Banana-da-terra','Cogumelo eryngii','Palmito pupunha','Legumes da estação','Gengibre','Pimenta de cheiro']);
+I('lat','g',['Manteiga','Queijo coalho']);I('lat','ml',['Leite']);I('lat','un',['Ovo']);
+I('seco','g',['Panko','Farinha de trigo','Furikake','Missô','Azeitona preta','Espaguete','Açafrão','Farinha de mandioca','Semente de abóbora','Arroz carnaroli','Arroz branco','Melaço','Flor de sal']);
+I('seco','ml',['Azeite','Vinho branco','Dendê','Óleo de cozinha','Cerveja lager','Caldo de legumes']);
+I('pao','un',['Pão preto','Brioche','Pão dos sliders','Pão do mexilhão']);
+I('casa','g',['Patacone','Molho de ervas e Dijon','Aioli de sumac','Vinagrete de pimenta de cheiro','Manteiga de camarão','Molho tártaro','Aioli de tahine negro','Creme de abacate','Aioli de vinho branco e pimenta de cheiro','Manteiga de ervas','Vinagrete de tangerina','Arroz base cozido','Mole verde','Base de moqueca','Maionese da casa','Tomate assado']);
+I('casa','ml',['Leite de tigre de tucupi','Caldo de peixe','Azeite vermelho']);
+var BPRACA={'Patacone':'E','Molho de ervas e Dijon':'GM','Aioli de sumac':'GM','Vinagrete de pimenta de cheiro':'GM','Manteiga de camarão':'E','Molho tártaro':'GM','Aioli de tahine negro':'GM','Creme de abacate':'GM','Aioli de vinho branco e pimenta de cheiro':'GM','Manteiga de ervas':'G','Vinagrete de tangerina':'GM','Arroz base cozido':'E','Mole verde':'E','Base de moqueca':'E','Maionese da casa':'GM','Tomate assado':'E','Leite de tigre de tucupi':'GM','Caldo de peixe':'E','Azeite vermelho':'GM'};
+// lotes conhecidos (receita do Fran, 16/11); rendimento a pesar
+var LOTE={'Mole verde':[['Talos e folhas de brócolis',500],['Cebola',100],['Alho',40],['Semente de abóbora',80],['Gengibre',5],['Cebolinha',100],['Coentro',100],['Pimenta de cheiro',null]],
+'Arroz base cozido':[['Arroz carnaroli',1000],['Óleo de cozinha',80],['Cerveja lager',300],['Caldo de legumes',700]]};
+var N=null;
+// prato: [id,nome,praça,mix por 100 pax,serviço,ficha,nota]
+var PR=[
+['crudo','Crudo do dia','GM',8,'AJ',[['Peixe do dia (lombo, cru)',N],['Azeite',N],['Limão',N],['Flor de sal',N]]],
+['tiradito','Tiradito de tucupi','GM',8,'AJ',[['Peixe do dia (lombo, cru)',N],['Leite de tigre de tucupi',N]]],
+['tartar','Tartar de atum no patacone','GM',10,'AJ',[['Atum',N],['Patacone',N],['Molho de ervas e Dijon',N],['Cebola roxa',N],['Ciboulette',N],['Furikake',N]]],
+['caviar','Caviar de esturjão','GM',1,'AJ',[['Caviar de esturjão, lata 15 g',1]]],
+['e_cam','Espeto de camarão','G',8,'AJ',[['Camarão grande',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
+['e_lula','Espeto de lula','G',5,'AJ',[['Lula',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
+['e_polvo','Espeto de polvo','G',6,'AJ',[['Polvo cru',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
+['e_misto','Espeto misto','G',6,'AJ',[['Camarão grande',N],['Polvo cru',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
+['e_ventr','Espetinho de ventrecha','G',6,'AJ',[['Ventrecha',N],['Vinagrete de pimenta de cheiro',N]]],
+['e_eryn','Espeto de cogumelo eryngii','G',3,'AJ',[['Cogumelo eryngii',N],['Missô',N],['Azeite',N],['Limão',N]]],
+['pao_cam','Pão de camarão','E',15,'AJ',[],'Ficha do Gerônimo, a receber no teste'],
+['cam_frig','Camarão na frigideira','E',6,'AJ',[['Camarão',N],['Manteiga de camarão',N]]],
+['lula_dore','Lula à dorê','E',10,'AJ',[['Lula',N],['Farinha de trigo',N],['Ovo',N],['Molho tártaro',N],['Limão',N]]],
+['sliders','Trio de fish sliders','E',8,'AJ',[['Peixe dos sliders',N],['Panko',N],['Pão dos sliders',3],['Aioli de tahine negro',N],['Creme de abacate',N],['Cebola roxa',N],['Hortelã',N],['Limão',N]]],
+['mexilhao','Mexilhão na panelinha','E',5,'AJ',[['Mexilhão',N],['Vinho branco',N],['Manteiga',N],['Alho',N],['Salsa',N],['Pão do mexilhão',N]]],
+['s_polvo','Sanduíche de polvo','E',6,'AJ',[['Pão preto',1],['Polvo cru',N],['Aioli de sumac',N],['Cebola',N],['Tomate assado',N],['Rúcula',N]],'Polvo com a grelha'],
+['s_vieira','Sanduíche de vieira','E',4,'AJ',[['Vieira',80],['Brioche',1],['Aioli de vinho branco e pimenta de cheiro',N],['Funcho',N],['Pepino',N]]],
+['pele','Pele crocante','E',6,'AJ',[],'A pele vem do peixe do dia'],
+['peixe_p','Peixe na brasa P','G',8,'AJ',[['Peixe do dia (porção na brasa)',N],['Limão',N],['Azeite',N]],'2 guarnições'],
+['peixe_m','Peixe na brasa M','G',10,'AJ',[['Peixe do dia (porção na brasa)',N],['Limão',N],['Azeite',N]],'3 guarnições'],
+['peixe_g','Peixe na brasa G','G',4,'AJ',[['Peixe do dia (porção na brasa)',N],['Limão',N],['Azeite',N]],'3 guarnições'],
+['polvo','Polvo grelhado','G',6,'AJ',[['Polvo cru',N],['Azeite vermelho',N]],'Com purê de banana e arroz verde'],
+['ancho','Ancho na brasa','G',5,'AJ',[['Manteiga de ervas',N]],'Carne: insumo a definir'],
+['vongole','Espaguete alle vongole','E',5,'AJ',[['Vôngole',N],['Espaguete',N],['Alho',N],['Vinho branco',N],['Azeite',N]]],
+['caldeirada','Caldeirada na panela de barro','E',3,'AJ',[['Peixe da caldeirada',N],['Tomate',N],['Açafrão',N],['Vinho branco',N],['Caldo de peixe',N]]],
+['nicoise','Salada niçoise','GM',5,'AJ',[['Carapau ou anchova',N],['Ovo',N],['Azeitona preta',N],['Folhas',N],['Vinagrete de tangerina',N]]],
+['brocolis','Brócolis grelhado com batatas','G',4,'AJ',[['Brócolis',N],['Batata',N]]],
+['palmito','Palmito pupunha','G',4,'AJ',[['Palmito pupunha',N],['Manteiga',N],['Limão',N]]],
+['verde','Salada verde','GM',6,'AJ',[['Alface',N],['Rúcula',N],['Agrião',N],['Vinagrete de tangerina',N]]],
+['g_sbat','Salada de batata com camarão','GM',1,'AJ',[['Batata',N],['Maionese da casa',N],['Camarão',N]],'Guarnição'],
+['g_pure_b','Purê de banana-da-terra','E',2,'AJ',[['Banana-da-terra',N],['Caldo de peixe',N],['Azeite vermelho',N]],'Guarnição'],
+['g_averde','Arroz verde','E',2,'AJ',[['Arroz base cozido',180],['Mole verde',100],['Caldo de peixe',100],['Manteiga',20],['Leite de tigre de tucupi',20],['Cebolinha',5]],'Guarnição · porção do Fran, 16/11'],
+['g_alar','Arroz laranja','E',2,'AJ',[['Arroz base cozido',180],['Base de moqueca',100],['Caldo de peixe',100],['Vinagrete de pimenta de cheiro',80]],'Guarnição · porção do Fran, 16/11'],
+['g_farofa','Farofa de cebola e dendê','E',1,'AJ',[['Cebola',N],['Dendê',N],['Manteiga',N],['Farinha de mandioca',N]],'Guarnição'],
+['g_batata','Batata frita','E',3,'AJ',[['Batata',N]],'Guarnição'],
+['g_abranco','Arroz branco','E',1,'AJ',[['Arroz branco',N]],'Guarnição'],
+['g_pure_bat','Purê de batata','E',1,'AJ',[['Batata',N],['Manteiga',N],['Leite',N]],'Guarnição'],
+['g_legumes','Legumes grelhados','G',1,'AJ',[['Legumes da estação',N]],'Guarnição'],
+['pudim','Pudim de leite queimado','C',8,'AJ',[],'Ficha do Alex'],
+['sorbet','Sorbet de limão siciliano','C',4,'AJ',[],'Comprado'],
+['basca','Torta basca de avelã','C',6,'AJ',[],'Ficha do Alex'],
+['namelaka','Namelaka','C',5,'AJ',[],'Ficha do Alex'],
+['banana','Banana-da-terra na brasa','C',4,'AJ',[['Banana-da-terra',N],['Queijo coalho',N],['Melaço',N]],'Brasa com a grelha'],
+['exec','Almoço executivo','E',40,'X',[],'Terça a sexta, no almoço. Ficha a fechar']];
+var GUAR=['g_pure_b','g_averde','g_alar','g_farofa','g_batata','g_sbat','g_abranco','g_pure_bat','g_legumes'];
+var SHARE0={g_pure_b:20,g_averde:15,g_alar:15,g_farofa:15,g_batata:15,g_sbat:5,g_abranco:5,g_pure_bat:5,g_legumes:5};
+var DIAS=['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'];
+var PAX0={0:[60,0],1:[0,0],2:[30,50],3:[30,50],4:[30,50],5:[30,50],6:[30,50]};
+
+var S0={pax:PAX0,margem:10,mix:{},share:SHARE0,per:{},fic:{},rend:{},est:{},pronto:{},feito:{},vend:{},paxv:'',dataP:'',dataD:''};
+var S=ler();
+function ler(){var s;try{s=JSON.parse(localStorage.getItem('fisga_prod')||'null')}catch(x){}s=s||{};for(var k in S0)if(s[k]==null)s[k]=JSON.parse(JSON.stringify(S0[k]));return s}
+function gravar(){try{localStorage.setItem('fisga_prod',JSON.stringify(S))}catch(x){}}
+var TAB='prod';try{TAB=localStorage.getItem('fisga_prod_tab')||'prod'}catch(x){}
+
+function hoje(){var d=new Date(Date.now()-3*3600e3);return d.toISOString().slice(0,10)}
+function dt(s){var p=s.split('-');return new Date(+p[0],p[1]-1,+p[2])}
+function iso(d){return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2)}
+function br(s){return s.split('-').reverse().slice(0,2).join('/')}
+function mix(p){return S.mix[p[0]]!=null&&S.mix[p[0]]!==''?+S.mix[p[0]]:p[3]}
+function qf(p,i){var k=p[0]+'|'+i,v=S.fic[k];return v!=null&&v!==''?+v:p[5][i][1]}
+function per(c){return S.per[c]!=null&&S.per[c]!==''?+S.per[c]:CAT[c][1]}
+function rend(b){var v=S.rend[b];return v!=null&&v!==''?+v:null}
+function lq(b,i){var k=b+'|'+i,v=S.fic[k];return v!=null&&v!==''?+v:LOTE[b][i][1]}
+
+// porções de um dia
+function porcoes(d){var w=dt(d).getDay(),px=S.pax[w]||[0,0],A=+px[0]||0,J=+px[1]||0,f=1+(+S.margem||0)/100,r={};
+ PR.forEach(function(p){var base=p[4]==='X'?((w>=2&&w<=5)?A:0):A+J;r[p[0]]=base*mix(p)/100*f});
+ var gx=2*r.peixe_p+3*r.peixe_m+3*r.peixe_g,tot=0;GUAR.forEach(function(g){tot+=+(S.share[g]||0)});
+ if(tot>0)GUAR.forEach(function(g){r[g]+=gx*(+(S.share[g]||0))/tot});
+ r.g_pure_b+=r.polvo;r.g_averde+=r.polvo;
+ for(var k in r)r[k]=Math.ceil(r[k]-1e-9);return r}
+// necessidade de insumos para porções
+function necess(r,acc,miss){PR.forEach(function(p){var n=r[p[0]];if(!n)return;
+ p[5].forEach(function(x,i){var q=qf(p,i);if(q==null){(miss[p[0]]=miss[p[0]]||[]).push(x[0]);return}acc[x[0]]=(acc[x[0]]||0)+n*q})});return acc}
+function explode(acc,miss){var out={};for(var k in acc){if(LOTE[k]){var R=rend(k);if(R){LOTE[k].forEach(function(x,i){var q=lq(k,i);if(q==null){(miss['lote:'+k]=miss['lote:'+k]||[]).push(x[0]);return}out[x[0]]=(out[x[0]]||0)+acc[k]/R*q})}else miss['rend:'+k]=1}}
+ for(var k2 in out)acc[k2]=(acc[k2]||0)+out[k2];return acc}
+function fmt(v,u){if(u==='un')return Math.ceil(v)+' un';if(v>=1000)return (Math.round(v/100)/10).toLocaleString('pt-BR')+(u==='g'?' kg':' L');return Math.ceil(v)+' '+u}
+function E(t,a,x){var e=document.createElement(t);for(var k in a||{})e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e}
+function num(v,f,ph){var i=E('input',{type:'number',inputmode:'decimal',min:'0',step:'any'});if(v!=null&&v!=='')i.value=v;if(ph!=null)i.placeholder=ph;i.oninput=function(){f(i.value);gravar()};return i}
+function zap(txt,lbl){var a=E('a',{class:'btn cheio2',href:'#',target:'_blank',rel:'noopener'},lbl||'Enviar no WhatsApp');a.onclick=function(){a.href='https://wa.me/?text='+encodeURIComponent(txt())};return a}
+function copiar(txt){var b=E('button',{type:'button'},'Copiar texto'),t=E('textarea',{readonly:'readonly','aria-label':'Texto'});b.onclick=function(){var s=txt();function man(){t.style.display='block';t.value=s;t.select()}try{navigator.clipboard.writeText(s).then(function(){b.textContent='Copiado'},man)}catch(x){man()}};return [b,t]}
+
+var TABS=[['prod','Produção'],['ped','Pedidos'],['prev','Previsão'],['mix','Mix'],['fic','Fichas']];
+function tabs(){var r=document.getElementById('tabs');r.textContent='';TABS.forEach(function(t){var b=E('button',{'aria-selected':t[0]===TAB},t[1]);b.onclick=function(){TAB=t[0];try{localStorage.setItem('fisga_prod_tab',TAB)}catch(x){}desenha();scrollTo(0,0)};r.appendChild(b)})}
+function desenha(){tabs();var m=document.getElementById('m');m.textContent='';({prod:vProd,ped:vPed,prev:vPrev,mix:vMix,fic:vFic})[TAB](m)}
+function titulo(m,t,s){m.appendChild(E('div',{class:'quem'},t));if(s)m.appendChild(E('div',{class:'pr'},s))}
+function nota(m){m.appendChild(E('p',{class:'rodape'},'Os números saem da previsão de pessoas e do mix. Mix, divisão de guarnições e prazos de pedido são proposta inicial: troque pelo que vender de verdade. A ficha técnica do Fisga manda. Dados salvos só neste celular.'))}
+
+// PRODUÇÃO
+function vProd(m){var d=S.dataD||hoje(),w=dt(d).getDay(),px=S.pax[w]||[0,0];
+ titulo(m,'Produção do dia',DIAS[w]+' '+br(d)+' · previsão de '+((+px[0]||0)+(+px[1]||0))+' pessoas (almoço '+(+px[0]||0)+', jantar '+(+px[1]||0)+') + '+S.margem+'% de margem');
+ var c=E('div',{class:'campo'},'Dia da produção');var di=E('input',{type:'date'});di.value=d;di.onchange=function(){S.dataD=di.value;gravar();desenha()};c.appendChild(di);m.appendChild(c);
+ if(w===1){m.appendChild(E('p',{class:'aviso'},'Segunda: casa fechada.'));return}
+ var r=porcoes(d),miss={},acc=necess(r,{},miss),key=d;S.pronto[key]=S.pronto[key]||{};S.feito[key]=S.feito[key]||{};
+ ['G','GM','E','C'].forEach(function(pc){var lst=PR.filter(function(p){return p[2]===pc&&r[p[0]]>0});var bs=Object.keys(acc).filter(function(b){return INS[b]&&INS[b][0]==='casa'&&BPRACA[b]===pc});
+  if(!lst.length&&!bs.length)return;m.appendChild(E('h2',{},PRACA[pc]));
+  bs.forEach(function(b){linhaProd(m,key,'b:'+b,b,'Base · '+fmt(acc[b],INS[b][1])+' para o dia',acc[b],INS[b][1])});
+  lst.forEach(function(p){linhaProd(m,key,p[0],p[1],p[6]||'',r[p[0]],'porções')})});
+ m.appendChild(E('p',{class:'aviso'},'Bases sem gramagem na ficha não aparecem aqui. Complete na aba Fichas.'));
+ var a=E('div',{class:'acoes'});a.appendChild(zap(function(){return txtProd(d,r,acc)}));copiar(function(){return txtProd(d,r,acc)}).forEach(function(x,i){i?m.appendChild(x):a.appendChild(x)});m.insertBefore(a,m.lastChild);nota(m)}
+function linhaProd(m,key,id,nome,sub,q,u){var l=E('div',{class:'l'+(S.feito[key][id]?' ok':'')}),c=E('input',{type:'checkbox','aria-label':nome});c.checked=!!S.feito[key][id];
+ var t=E('div',{class:'t'});t.appendChild(E('b',{},nome));var pr=S.pronto[key][id],falta=Math.max(0,q-(+pr||0));
+ var sm=E('small',{},(sub?sub+' · ':'')+'pronto:');var ip=num(pr,function(v){S.pronto[key][id]=v;qq.firstChild.textContent=u==='porções'?Math.ceil(Math.max(0,q-(+v||0))):fmt(Math.max(0,q-(+v||0)),u)},'0');ip.style.width='64px';ip.style.padding='3px 6px';ip.style.marginLeft='6px';sm.appendChild(ip);t.appendChild(sm);
+ var qq=E('div',{class:'q'});qq.appendChild(document.createTextNode(u==='porções'?Math.ceil(falta):fmt(falta,u)));if(u==='porções')qq.appendChild(E('span',{},' porç.'));
+ c.onchange=function(){S.feito[key][id]=c.checked;l.classList.toggle('ok',c.checked);gravar()};l.appendChild(c);l.appendChild(t);l.appendChild(qq);m.appendChild(l)}
+function txtProd(d,r,acc){var w=dt(d).getDay(),s='*FISGA · Produção · '+DIAS[w]+' '+br(d)+'*';var k=d;
+ ['G','GM','E','C'].forEach(function(pc){var L=[];Object.keys(acc).forEach(function(b){if(INS[b]&&INS[b][0]==='casa'&&BPRACA[b]===pc){var f=Math.max(0,acc[b]-(+(S.pronto[k]||{})['b:'+b]||0));if(f>0)L.push('• '+b+': '+fmt(f,INS[b][1]))}});
+  PR.forEach(function(p){if(p[2]===pc&&r[p[0]]>0){var f=Math.max(0,r[p[0]]-(+(S.pronto[k]||{})[p[0]]||0));if(f>0)L.push('• '+p[1]+': '+f+' porç.')}});if(L.length)s+='\n\n*'+PRACA[pc]+'*\n'+L.join('\n')});return s}
+
+// PEDIDOS
+function vPed(m){var d=S.dataP||hoje();titulo(m,'Lista de pedidos','Soma a previsão dos próximos dias pelo prazo de cada categoria e desconta o estoque.');
+ var c=E('div',{class:'campo'},'Pedido a partir de');var di=E('input',{type:'date'});di.value=d;di.onchange=function(){S.dataP=di.value;gravar();desenha()};c.appendChild(di);m.appendChild(c);
+ var miss={},faltaF={};Object.keys(CAT).forEach(function(cat){if(cat==='casa')return;var P=per(cat);if(!P)return;var acc={};
+  for(var i=0;i<P;i++){var dd=dt(d);dd.setDate(dd.getDate()+i);var r=porcoes(iso(dd));necess(r,acc,miss)}explode(acc,miss);
+  var itens=Object.keys(acc).filter(function(n){return INS[n]&&INS[n][0]===cat}).sort();var semFicha=Object.keys(INS).filter(function(n){return INS[n][0]===cat&&!acc[n]});
+  var fim=dt(d);fim.setDate(fim.getDate()+P-1);
+  m.appendChild(E('h2',{class:cat==='horti'?'fr':''},CAT[cat][0]+' · '+P+(P>1?' dias':' dia')+' · até '+br(iso(fim))));
+  if(!itens.length)m.appendChild(E('p',{class:'falta'},'Sem gramagem na ficha ainda para esta categoria.'));
+  itens.forEach(function(n){var u=INS[n][1],e=+(S.est[n]||0),f=Math.max(0,acc[n]-(u==='un'?e:e*(u==='g'||u==='ml'?1000:1)));
+   var l=E('div',{class:'ped'+(f<=0?' zero':'')}),t=E('div');t.appendChild(E('b',{},n));t.appendChild(E('small',{},'precisa '+fmt(acc[n],u)+' · estoque em '+(u==='un'?'un':u==='g'?'kg':'L')));
+   var q=E('div',{class:'q'},f>0?fmt(f,u):'ok');l.appendChild(t);l.appendChild(q);l.appendChild(num(S.est[n],function(v){S.est[n]=v;desenha()},'0'));m.appendChild(l)});
+  faltaF[cat]=semFicha});
+ var mk=Object.keys(miss).filter(function(k){return k.indexOf(':')<0});
+ if(mk.length||Object.keys(miss).length){var a=E('div',{class:'aviso'});a.appendChild(E('b',{},'Fora da conta por falta de ficha'));
+  mk.forEach(function(k){var p=PR.filter(function(x){return x[0]===k})[0];a.appendChild(E('div',{class:'falta'},p[1]+': '+miss[k].join(', ')))});
+  Object.keys(miss).filter(function(k){return k.indexOf('rend:')===0}).forEach(function(k){a.appendChild(E('div',{class:'falta'},k.slice(5)+': falta o rendimento do lote'))});
+  a.appendChild(E('div',{class:'falta'},'Preencha na aba Fichas e a lista completa sozinha.'));m.appendChild(a)}
+ var ac=E('div',{class:'acoes'});ac.appendChild(zap(function(){return txtPed(m)}));var cp=copiar(function(){return txtPed(m)});ac.appendChild(cp[0]);m.appendChild(ac);m.appendChild(cp[1]);
+ PR.filter(function(p){return p[5].length===0}).length&&m.appendChild(E('p',{class:'rodape'},'Sem insumos listados: pão de camarão (ficha do Gerônimo), doces do Alex, executivo e pele crocante. Pescado: o prazo de 1 dia é proposta; confirmar os dias de entrega com o Koji.'));nota(m)}
+function txtPed(m){var s='*FISGA · Pedido · '+br(S.dataP||hoje())+'*',cur='';m.querySelectorAll('h2,.ped').forEach(function(e){if(e.tagName==='H2'){cur='\n\n*'+e.textContent+'*';return}var q=e.querySelector('.q').textContent;if(q!=='ok'){if(cur){s+=cur;cur=''}s+='\n• '+e.querySelector('b').textContent+': '+q}});return s}
+
+// PREVISÃO
+function vPrev(m){titulo(m,'Previsão de pessoas','Pessoas por serviço em cada dia. Base: 80 pessoas por dia (planejamento de 23/11). A divisão entre almoço e jantar é proposta.');
+ var h=E('div',{class:'dia cab2'});['Dia','Almoço','Jantar'].forEach(function(x){h.appendChild(E('div',{},x))});m.appendChild(h);
+ var tot=E('p',{class:'tot'});function soma(){var t=0;for(var w=0;w<7;w++){t+=(+S.pax[w][0]||0)+(+S.pax[w][1]||0)}tot.textContent='Semana: '+t+' pessoas'}
+ [2,3,4,5,6,0,1].forEach(function(w){var r=E('div',{class:'dia'});r.appendChild(E('div',{},DIAS[w]));
+  if(w===1){r.appendChild(E('div',{class:'x'},'fechado'));r.appendChild(E('div',{class:'x'},'—'))}
+  else{r.appendChild(num(S.pax[w][0],function(v){S.pax[w][0]=v;soma()}));if(w===0)r.appendChild(E('div',{class:'x'},'—'));else r.appendChild(num(S.pax[w][1],function(v){S.pax[w][1]=v;soma()}))}m.appendChild(r)});
+ soma();m.appendChild(tot);
+ m.appendChild(E('h2',{},'Margem de segurança'));var c=E('div',{class:'campo'},'Produzir a mais (%)');c.appendChild(num(S.margem,function(v){S.margem=v}));m.appendChild(c);
+ m.appendChild(E('h2',{},'Prazo de cada pedido'));Object.keys(CAT).forEach(function(k){if(k==='casa')return;var c2=E('div',{class:'campo'},CAT[k][0]+' (dias)');c2.appendChild(num(per(k),function(v){S.per[k]=v}));m.appendChild(c2)});
+ m.appendChild(E('p',{class:'rodape'},'Seco a cada 15 dias e hortifrúti a cada 7: direção de 23/11. Os outros prazos são proposta.'));
+ var z=E('button',{type:'button',style:'margin-top:18px;width:100%'},'Voltar aos valores iniciais'),arm=0;z.onclick=function(){if(!arm){arm=1;z.textContent='Toque de novo para confirmar';return}S.pax=JSON.parse(JSON.stringify(PAX0));S.margem=10;S.per={};gravar();desenha()};m.appendChild(z)}
+
+// MIX
+function vMix(m){titulo(m,'Mix de vendas','Quantos pedem cada prato a cada 100 pessoas. Começa com uma estimativa; depois da primeira semana, use as vendas reais.');
+ var c=E('div',{class:'campo'},'Pessoas atendidas no período');c.appendChild(num(S.paxv,function(v){S.paxv=v}));m.appendChild(c);
+ var b=E('button',{type:'button',class:'cheio2',style:'width:100%;margin:10px 0'},'Usar vendas reais no mix');b.onclick=function(){var P=+S.paxv;if(!P){b.textContent='Preencha as pessoas atendidas';return}var n=0;PR.forEach(function(p){var v=S.vend[p[0]];if(v!==''&&v!=null){S.mix[p[0]]=Math.round(+v/P*1000)/10;n++}});gravar();b.textContent=n+' pratos atualizados';desenha()};m.appendChild(b);
+ var h=E('div',{class:'dia cab2'});['Prato','Vendidos','Por 100'].forEach(function(x){h.appendChild(E('div',{},x))});
+ var sec=null;PR.forEach(function(p){var s=GUAR.indexOf(p[0])>=0?'Guarnições pedidas à parte':p[2]==='C'?'Doces':p[0]==='exec'?'Almoço':'Pratos';if(s!==sec){sec=s;m.appendChild(E('h2',{},s));m.appendChild(h.cloneNode(true))}
+  var r=E('div',{class:'dia'});r.appendChild(E('div',{},p[1]));r.appendChild(num(S.vend[p[0]],function(v){S.vend[p[0]]=v},''));r.appendChild(num(mix(p),function(v){S.mix[p[0]]=v}));m.appendChild(r)});
+ m.appendChild(E('h2',{},'Guarnições que vão com o peixe'));m.appendChild(E('p',{class:'pr'},'P leva 2, M e G levam 3; o polvo leva purê de banana e arroz verde. Divisão em % entre as guarnições (proposta).'));
+ GUAR.forEach(function(g){var p=PR.filter(function(x){return x[0]===g})[0];var c3=E('div',{class:'campo'},p[1]);c3.appendChild(num(S.share[g],function(v){S.share[g]=v}));m.appendChild(c3)});
+ m.appendChild(E('p',{class:'rodape'},'Reposição de guarnição no M e no G ainda não entra na conta.'))}
+
+// FICHAS
+function vFic(m){titulo(m,'Fichas para o cálculo','Quantidade de cada insumo por porção. Em branco, o insumo fica fora do pedido. Valores preenchidos vieram das suas receitas de 16/11.');
+ ['G','GM','E','C'].forEach(function(pc){m.appendChild(E('h2',{},PRACA[pc]));PR.filter(function(p){return p[2]===pc}).forEach(function(p){var dd=E('details'),su=E('summary',{},p[1]);var fal=p[5].filter(function(x,i){return qf(p,i)==null}).length;su.appendChild(E('small',{},p[5].length?(fal?fal+' em branco':'completa'):(p[6]||'sem insumos')));dd.appendChild(su);
+  p[5].forEach(function(x,i){var r=E('div',{class:'fi'});r.appendChild(E('div',{},x[0]));r.appendChild(num(qf(p,i),function(v){S.fic[p[0]+'|'+i]=v},'—'));r.appendChild(E('i',{},INS[x[0]][1]));dd.appendChild(r)});m.appendChild(dd)})});
+ m.appendChild(E('h2',{class:'fr'},'Lotes das bases'));Object.keys(LOTE).forEach(function(b){var dd=E('details'),su=E('summary',{},b);su.appendChild(E('small',{},rend(b)?'rende '+fmt(rend(b),'g'):'falta o rendimento'));dd.appendChild(su);
+  var r0=E('div',{class:'fi'});r0.appendChild(E('div',{},'Rendimento do lote'));r0.appendChild(num(rend(b),function(v){S.rend[b]=v},'pesar'));r0.appendChild(E('i',{},'g'));dd.appendChild(r0);
+  LOTE[b].forEach(function(x,i){var r=E('div',{class:'fi'});r.appendChild(E('div',{},x[0]));r.appendChild(num(lq(b,i),function(v){S.fic[b+'|'+i]=v},'—'));r.appendChild(E('i',{},INS[x[0]][1]));dd.appendChild(r)});m.appendChild(dd)});
+ m.appendChild(E('p',{class:'rodape'},'Mole verde: no fim entram também 100 g de óleo verde, que é base da casa. Arroz base: receita do lote de 16/11; pesar o cozido para o rendimento.'))}
+desenha();
+</script>
+</body></html>
