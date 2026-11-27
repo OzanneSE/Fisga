@@ -54,7 +54,7 @@ summary small{font-family:var(--sans);font-size:12.5px;color:var(--tinta-3);marg
 textarea{font:15px var(--sans);width:100%;min-height:160px;border:1px solid var(--regua);background:transparent;color:var(--tinta);padding:8px;margin-top:10px;display:none}
 </style></head>
 <body>
-<header><svg class="marca" viewBox="0 0 60 96" aria-hidden="true"><line x1="30" y1="6" x2="30" y2="88"/><path d="M14 18 L14 62 L30 88 L46 62 L46 18"/><line x1="14" y1="36" x2="19.5" y2="43"/><line x1="46" y1="36" x2="40.5" y2="43"/><line x1="30" y1="27" x2="35" y2="34"/></svg><div><div class="logo">FISGA</div><div class="sub">Produção · v2 · 26/11</div></div><a class="volta" href="index.html">← INÍCIO</a></header>
+<header><svg class="marca" viewBox="0 0 60 96" aria-hidden="true"><line x1="30" y1="6" x2="30" y2="88"/><path d="M14 18 L14 62 L30 88 L46 62 L46 18"/><line x1="14" y1="36" x2="19.5" y2="43"/><line x1="46" y1="36" x2="40.5" y2="43"/><line x1="30" y1="27" x2="35" y2="34"/></svg><div><div class="logo">FISGA</div><div class="sub">Produção · v3 · 26/11</div></div><a class="volta" href="index.html">← INÍCIO</a></header>
 <nav><div class="row" id="tabs"></div></nav>
 <main id="m"></main>
 <script>
@@ -102,7 +102,7 @@ var PR=[
 ['peixe_p','Peixe na brasa P','G',8,'AJ',[['Peixe do dia (porção na brasa)',N],['Limão',N],['Azeite',N]],'Guarnições à parte'],
 ['peixe_m','Peixe na brasa M','G',10,'AJ',[['Peixe do dia (porção na brasa)',N],['Limão',N],['Azeite',N]],'Guarnições à parte'],
 ['peixe_g','Peixe na brasa G','G',4,'AJ',[['Peixe do dia (porção na brasa)',N],['Limão',N],['Azeite',N]],'Guarnições à parte'],
-['polvo','Polvo grelhado','G',6,'AJ',[['Polvo cru',N],['Azeite vermelho',N]],'Com purê de banana e arroz verde'],
+['polvo','Polvo grelhado','G',6,'AJ',[['Polvo cru',N],['Azeite vermelho',N]],'Sai sozinho; purê à parte'],
 ['ancho','Ancho na brasa','G',5,'AJ',[['Manteiga de ervas',N]],'Carne: insumo a definir'],
 ['vongole','Espaguete alle vongole','E',5,'AJ',[['Vôngole',N],['Espaguete',N],['Alho',N],['Vinho branco',N],['Azeite',N]]],
 ['caldeirada','Caldeirada na panela de barro','E',3,'AJ',[['Peixe da caldeirada',N],['Tomate',N],['Açafrão',N],['Vinho branco',N],['Caldo de peixe',N]]],
@@ -149,7 +149,6 @@ function lq(b,i){var k=b+'|'+i,v=S.fic[k];return v!=null&&v!==''?+v:LOTE[b][i][1
 // porções de um dia
 function porcoes(d){var w=dt(d).getDay(),px=S.pax[w]||[0,0],A=+px[0]||0,J=+px[1]||0,f=1+(+S.margem||0)/100,r={};
  PR.forEach(function(p){var base=p[4]==='X'?((w>=2&&w<=5)?A:0):A+J;r[p[0]]=base*mix(p)/100*f});
- r.g_pure_b+=r.polvo;r.g_averde+=r.polvo;
  for(var k in r)r[k]=Math.ceil(r[k]-1e-9);return r}
 // necessidade de insumos para porções
 function necess(r,acc,miss){PR.forEach(function(p){var n=r[p[0]];if(!n)return;
@@ -231,7 +230,7 @@ function vMix(m){titulo(m,'Mix de vendas','Quantos pedem cada prato a cada 100 p
  var h=E('div',{class:'dia cab2'});['Prato','Vendidos','Por 100'].forEach(function(x){h.appendChild(E('div',{},x))});
  var sec=null;PR.forEach(function(p){var s=GUAR.indexOf(p[0])>=0?'Guarnições (vendidas à parte)':p[2]==='C'?'Doces':p[0]==='exec'?'Almoço':'Pratos';if(s!==sec){sec=s;m.appendChild(E('h2',{},s));m.appendChild(h.cloneNode(true))}
   var r=E('div',{class:'dia'});r.appendChild(E('div',{},p[1]));r.appendChild(num(S.vend[p[0]],function(v){S.vend[p[0]]=v},''));r.appendChild(num(mix(p),function(v){S.mix[p[0]]=v}));m.appendChild(r)});
- m.appendChild(E('p',{class:'rodape'},'Guarnições são vendidas à parte e entram só pelo mix. O polvo grelhado ainda puxa purê de banana e arroz verde, como na carta de 21/11.'))}
+ m.appendChild(E('p',{class:'rodape'},'Guarnições são vendidas à parte e entram só pelo mix.'))}
 
 // FICHAS
 function vFic(m){titulo(m,'Fichas para o cálculo','Quantidade de cada insumo por porção. Em branco, o insumo fica fora do pedido. Valores preenchidos vieram das suas receitas de 16/11.');
