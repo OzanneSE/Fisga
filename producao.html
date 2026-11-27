@@ -75,7 +75,7 @@ I('pao','un',['Pão preto','Brioche','Pão dos sliders','Pão do mexilhão']);
 I('casa','g',['Patacone','Molho de ervas e Dijon','Aioli de sumac','Vinagrete de pimenta de cheiro','Manteiga de camarão','Molho tártaro','Aioli de tahine negro','Creme de abacate','Aioli de vinho branco e pimenta de cheiro','Manteiga de ervas','Vinagrete de tangerina','Arroz base cozido','Mole verde','Base de moqueca','Maionese da casa','Tomate assado']);
 I('casa','ml',['Leite de tigre de tucupi','Caldo de peixe','Azeite vermelho']);
 var BPRACA={'Patacone':'E','Molho de ervas e Dijon':'GM','Aioli de sumac':'GM','Vinagrete de pimenta de cheiro':'GM','Manteiga de camarão':'E','Molho tártaro':'GM','Aioli de tahine negro':'GM','Creme de abacate':'GM','Aioli de vinho branco e pimenta de cheiro':'GM','Manteiga de ervas':'G','Vinagrete de tangerina':'GM','Arroz base cozido':'E','Mole verde':'E','Base de moqueca':'E','Maionese da casa':'GM','Tomate assado':'E','Leite de tigre de tucupi':'GM','Caldo de peixe':'E','Azeite vermelho':'GM'};
-// lotes conhecidos (receita do Fran, 16/11); rendimento a pesar
+// lotes conhecidos (receita de 16/11); rendimento a pesar
 var LOTE={'Mole verde':[['Talos e folhas de brócolis',500],['Cebola',100],['Alho',40],['Semente de abóbora',80],['Gengibre',5],['Cebolinha',100],['Coentro',100],['Pimenta de cheiro',null]],
 'Arroz base cozido':[['Arroz carnaroli',1000],['Óleo de cozinha',80],['Cerveja lager',300],['Caldo de legumes',700]]};
 var N=null;
@@ -91,7 +91,7 @@ var PR=[
 ['e_misto','Espeto misto','G',6,'AJ',[['Camarão grande',N],['Polvo cru',N],['Aioli de sumac',N],['Vinagrete de pimenta de cheiro',N]]],
 ['e_ventr','Espetinho de ventrecha','G',6,'AJ',[['Ventrecha',N],['Vinagrete de pimenta de cheiro',N]]],
 ['e_eryn','Espeto de cogumelo eryngii','G',3,'AJ',[['Cogumelo eryngii',N],['Missô',N],['Azeite',N],['Limão',N]]],
-['pao_cam','Pão de camarão','E',15,'AJ',[],'Ficha do Gerônimo, a receber no teste'],
+['pao_cam','Pão de camarão','E',15,'AJ',[],'Ficha a receber no teste com o autor da receita'],
 ['cam_frig','Camarão na frigideira','E',6,'AJ',[['Camarão',N],['Manteiga de camarão',N]]],
 ['lula_dore','Lula à dorê','E',10,'AJ',[['Lula',N],['Farinha de trigo',N],['Ovo',N],['Molho tártaro',N],['Limão',N]]],
 ['sliders','Trio de fish sliders','E',8,'AJ',[['Peixe dos sliders',N],['Panko',N],['Pão dos sliders',3],['Aioli de tahine negro',N],['Creme de abacate',N],['Cebola roxa',N],['Hortelã',N],['Limão',N]]],
@@ -112,17 +112,17 @@ var PR=[
 ['verde','Salada verde','GM',6,'AJ',[['Alface',N],['Rúcula',N],['Agrião',N],['Vinagrete de tangerina',N]]],
 ['g_sbat','Salada de batata com camarão','GM',6,'AJ',[['Batata',N],['Maionese da casa',N],['Camarão',N]],'Guarnição'],
 ['g_pure_b','Purê de banana-da-terra','E',12,'AJ',[['Banana-da-terra',N],['Caldo de peixe',N],['Azeite vermelho',N]],'Guarnição'],
-['g_averde','Arroz verde','E',10,'AJ',[['Arroz base cozido',180],['Mole verde',100],['Caldo de peixe',100],['Manteiga',20],['Leite de tigre de tucupi',20],['Cebolinha',5]],'Guarnição · porção do Fran, 16/11'],
-['g_alar','Arroz laranja','E',10,'AJ',[['Arroz base cozido',180],['Base de moqueca',100],['Caldo de peixe',100],['Vinagrete de pimenta de cheiro',80]],'Guarnição · porção do Fran, 16/11'],
+['g_averde','Arroz verde','E',10,'AJ',[['Arroz base cozido',180],['Mole verde',100],['Caldo de peixe',100],['Manteiga',20],['Leite de tigre de tucupi',20],['Cebolinha',5]],'Guarnição · porção da ficha, 16/11'],
+['g_alar','Arroz laranja','E',10,'AJ',[['Arroz base cozido',180],['Base de moqueca',100],['Caldo de peixe',100],['Vinagrete de pimenta de cheiro',80]],'Guarnição · porção da ficha, 16/11'],
 ['g_farofa','Farofa de cebola e dendê','E',10,'AJ',[['Cebola',N],['Dendê',N],['Manteiga',N],['Farinha de mandioca',N]],'Guarnição'],
 ['g_batata','Batata frita','E',15,'AJ',[['Batata',N]],'Guarnição'],
 ['g_abranco','Arroz branco','E',6,'AJ',[['Arroz branco',N]],'Guarnição'],
 ['g_pure_bat','Purê de batata','E',5,'AJ',[['Batata',N],['Manteiga',N],['Leite',N]],'Guarnição'],
 ['g_legumes','Legumes grelhados','G',6,'AJ',[['Legumes da estação',N]],'Guarnição'],
-['pudim','Pudim de leite queimado','C',8,'AJ',[],'Ficha do Alex'],
+['pudim','Pudim de leite queimado','C',8,'AJ',[],'Ficha da confeitaria'],
 ['sorbet','Sorbet de limão siciliano','C',4,'AJ',[],'Comprado'],
-['basca','Torta basca de avelã','C',6,'AJ',[],'Ficha do Alex'],
-['namelaka','Namelaka','C',5,'AJ',[],'Ficha do Alex'],
+['basca','Torta basca de avelã','C',6,'AJ',[],'Ficha da confeitaria'],
+['namelaka','Namelaka','C',5,'AJ',[],'Ficha da confeitaria'],
 ['banana','Banana-da-terra na brasa','C',4,'AJ',[['Banana-da-terra',N],['Queijo coalho',N],['Melaço',N]],'Brasa com a grelha'],
 ['exec','Almoço executivo','E',40,'X',[],'Terça a sexta, no almoço. Ficha a fechar']];
 var GUAR=['g_pure_b','g_averde','g_alar','g_farofa','g_batata','g_sbat','g_abranco','g_pure_bat','g_legumes'];
@@ -208,7 +208,7 @@ function vPed(m){var d=S.dataP||hoje();titulo(m,'Lista de pedidos','Soma a previ
   Object.keys(miss).filter(function(k){return k.indexOf('rend:')===0}).forEach(function(k){a.appendChild(E('div',{class:'falta'},k.slice(5)+': falta o rendimento do lote'))});
   a.appendChild(E('div',{class:'falta'},'Preencha na aba Fichas e a lista completa sozinha.'));m.appendChild(a)}
  var ac=E('div',{class:'acoes'});ac.appendChild(zap(function(){return txtPed(m)}));var cp=copiar(function(){return txtPed(m)});ac.appendChild(cp[0]);m.appendChild(ac);m.appendChild(cp[1]);
- PR.filter(function(p){return p[5].length===0}).length&&m.appendChild(E('p',{class:'rodape'},'Sem insumos listados: pão de camarão (ficha do Gerônimo), doces do Alex, executivo e pele crocante. Pescado: o prazo de 1 dia é proposta; confirmar os dias de entrega com o Koji.'));nota(m)}
+ PR.filter(function(p){return p[5].length===0}).length&&m.appendChild(E('p',{class:'rodape'},'Sem insumos listados: pão de camarão (ficha a receber), doces da confeitaria, executivo e pele crocante. Pescado: o prazo de 1 dia é proposta; confirmar os dias de entrega com o fornecedor.'));nota(m)}
 function txtPed(m){var s='*FISGA · Pedido · '+br(S.dataP||hoje())+'*',cur='';m.querySelectorAll('h2,.ped').forEach(function(e){if(e.tagName==='H2'){cur='\n\n*'+e.textContent+'*';return}var q=e.querySelector('.q').textContent;if(q!=='ok'){if(cur){s+=cur;cur=''}s+='\n• '+e.querySelector('b').textContent+': '+q}});return s}
 
 // PREVISÃO

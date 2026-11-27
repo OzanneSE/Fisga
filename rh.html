@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#E9E3D8">
+<title>Fisga · Pessoas e treinamento</title>
+<link rel="stylesheet" href="fisga.css">
+<style>
+body{padding:0 0 60px}
+header{padding:22px 18px 16px;display:flex;align-items:center;gap:14px;text-align:left}
+header .marca{width:26px;height:42px;margin:0}
+header .marca line,header .marca path{stroke-width:3}
+.logo{font-family:var(--cond);font-weight:300;font-size:30px;letter-spacing:.3em;line-height:1}
+.sub{font-family:var(--sans);font-weight:500;font-size:10.5px;letter-spacing:.24em;color:var(--tinta-3);margin-top:6px;text-transform:uppercase}
+.volta{white-space:nowrap;margin-left:auto;align-self:flex-start;font-family:var(--sans);font-size:12px;letter-spacing:.12em;color:var(--tinta-3);text-decoration:none;border:1px solid var(--regua);padding:6px 10px;border-radius:2px}
+nav{position:sticky;top:0;z-index:5;background:var(--fundo);border-bottom:2px solid var(--fogo)}
+.row{display:flex;overflow-x:auto;gap:6px;padding:7px 12px;scrollbar-width:none}
+button,.btn{font:600 12.5px var(--sans);letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--regua);background:transparent;color:var(--tinta-2);padding:10px 12px;border-radius:2px;white-space:nowrap;cursor:pointer;text-decoration:none;display:inline-block;text-align:center}
+nav button[aria-selected=true]{background:var(--fogo);border-color:var(--fogo);color:#F2EDE4}
+.row2 button[aria-selected=true]{background:var(--tinta);border-color:var(--tinta);color:var(--fundo)}
+main{max-width:640px;margin:0 auto;padding:22px 18px}
+.quem{font-family:var(--serif);font-weight:500;font-size:26px;line-height:1.2}
+.pr{font-family:var(--sans);font-size:14.5px;line-height:1.5;color:var(--tinta-3);margin:6px 0 14px}
+h2{font:600 12.5px var(--sans);letter-spacing:.22em;text-transform:uppercase;color:var(--fogo);margin:30px 0 8px;padding-left:12px;border-left:2px solid var(--fogo)}
+h2.fr{color:var(--frio);border-color:var(--frio)}h2.tr{color:var(--tinta-3);border-left-style:dashed;border-color:var(--tinta-3)}
+.org{border-left:2px solid var(--regua);padding-left:16px;margin:0 0 6px 6px}
+.no{font-family:var(--sans);font-size:15px;padding:6px 0;color:var(--tinta-2)}
+.no b{font-family:var(--serif);font-weight:500;font-size:18px;color:var(--tinta);display:block}
+.ldr{font-family:var(--serif);font-weight:500;font-size:20px;text-align:center;border:1px solid var(--tinta);padding:12px;margin:8px 0}
+.ldr small{display:block;font-family:var(--sans);font-size:13px;color:var(--tinta-3);font-weight:400}
+.seta{text-align:center;color:var(--tinta-3);font-family:var(--sans);font-size:13px}
+details{border-bottom:1px solid var(--regua);padding:12px 0}
+summary{font-family:var(--serif);font-weight:500;font-size:19px;cursor:pointer}
+summary small{font-family:var(--sans);font-size:12.5px;color:var(--tinta-3);margin-left:6px;letter-spacing:.04em}
+.k{font:600 11px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--tinta-3);margin:12px 0 4px}
+ul{list-style:none;font-family:var(--sans);font-size:15px;line-height:1.5;color:var(--tinta-2)}
+ul li{padding:3px 0 3px 14px;position:relative}ul li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:1px;background:var(--fogo)}
+.it{display:flex;gap:14px;align-items:flex-start;border-bottom:1px solid var(--regua);padding:11px 0;cursor:pointer}
+.it input{width:22px;height:22px;flex:0 0 22px;margin-top:2px;accent-color:var(--fogo)}
+.it b{font-family:var(--serif);font-weight:500;font-size:17px;line-height:1.3}
+.it.ok b{text-decoration:line-through;color:var(--tinta-3)}
+.campo{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--regua);font-family:var(--sans);font-size:15px;color:var(--tinta-2)}
+input[type=text]{font:16px var(--sans);border:1px solid var(--regua);border-radius:2px;background:transparent;color:var(--tinta);padding:7px 8px;width:60%}
+.bar{height:3px;background:var(--regua);margin-top:10px}.bar i{display:block;height:100%;background:var(--fogo)}
+.cont{font-family:var(--sans);font-size:12.5px;color:var(--tinta-3);margin-top:6px}
+.acoes{display:flex;gap:8px;margin-top:16px}.acoes .btn,.acoes button{flex:1}
+.cheio2{background:var(--tinta)!important;color:var(--fundo)!important;border-color:var(--tinta)!important}
+.rodape{font-family:var(--sans);font-size:13px;line-height:1.5;color:var(--tinta-3);margin-top:22px}
+.prop{font:600 10.5px var(--sans);letter-spacing:.14em;color:var(--fogo);border:1px dashed var(--fogo);padding:0 5px;border-radius:2px;margin-left:6px;vertical-align:3px}
+textarea{display:none;font:15px var(--sans);width:100%;min-height:160px;border:1px solid var(--regua);background:transparent;color:var(--tinta);padding:8px;margin-top:10px}
+</style></head>
+<body>
+<header><svg class="marca" viewBox="0 0 60 96" aria-hidden="true"><line x1="30" y1="6" x2="30" y2="88"/><path d="M14 18 L14 62 L30 88 L46 62 L46 18"/><line x1="14" y1="36" x2="19.5" y2="43"/><line x1="46" y1="36" x2="40.5" y2="43"/><line x1="30" y1="27" x2="35" y2="34"/></svg><div><div class="logo">FISGA</div><div class="sub">Pessoas · v1 · 26/11</div></div><a class="volta" href="index.html">← INÍCIO</a></header>
+<nav><div class="row" id="tabs"></div></nav>
+<main id="m"></main>
+<script>
+try{if(localStorage.getItem('fisga_tema')==='e')document.body.classList.add('escuro')}catch(x){}
+var SETORES=[
+ ['Direção','',[['Sócios','Decidem carta, preço e investimento'],['Pescado','Fornecimento, seleção e tratamento do peixe']]],
+ ['Liderança da cozinha','',[['Líder da cozinha','Leva as decisões dos sócios à equipe e responde pelo padrão'],['Chefe de apoio','Apoia a liderança']]],
+ ['Cozinha quente','fogo',[['Grelha','Responsável + turno do dia + turno da noite'],['Entremetier','Responsável + turno do dia + turno da noite'],['Curinga','Cobre folgas nas três praças · a definir']]],
+ ['Cozinha fria','frio',[['Garde-manger','Responsável + turno do dia + turno da noite'],['Confeitaria','Confeiteiro, dia e noite · doces saem com o garde-manger']]],
+ ['Higienização','',[['Pia','Turno do dia e turno da noite · a definir']]],
+ ['Salão e bar','tr',[['A estruturar','Fora deste material por enquanto']]],
+ ['RH e administrativo','tr',[['A estruturar','Admissão, ponto, escala, folha e férias, com o contador']]]];
+// cargos: id, nome, setor, missão, responde a, responsabilidades, competências, segurança
+var CARGOS=[
+['lider','Líder da cozinha','Liderança','Fazer a cozinha funcionar no padrão da casa, todos os dias, e ser a ponte entre os sócios e a equipe.','Sócios',
+ ['Passar à equipe as direções que os sócios decidem','Abrir e fechar a cozinha com a conferência de cada praça','Montar escala, produção e pedidos','Treinar e avaliar cada função','Levar aos sócios o que a equipe precisa'],
+ ['Liderança e comunicação','Conhecer todas as praças','Leitura de custo e de previsão','Calma no pico'],['Responde pela segurança de alimentos com o responsável técnico']],
+['grelha','Grelha','Cozinha quente','Tirar da brasa o peixe, o polvo, os espetos e a carne no ponto certo, com fogo sob controle.','Líder da cozinha',
+ ['Montar e manter as zonas da brasa','Porcionar P, M e G e preparar os espetos','Cozinhar no ponto, com sonda','Finalizar vegetais e itens de brasa de outras praças','Limpar grelha e braseiro no fim'],
+ ['Leitura do fogo e da brasa','Ponto do peixe sem ressecar','Pele que solta sem rasgar','Velocidade com vários pedidos'],['Queimadura e fumaça','Proteína fora do frio só na quantidade da vez','Cinza em recipiente metálico']],
+['gm','Garde-manger','Cozinha fria','Servir o cru, as saladas e os molhos frios com frescor e segurança, e soltar os doces.','Líder da cozinha',
+ ['Receber e guardar o pescado do cru','Produzir leite de tigre, aiolis, vinagretes e cremes','Montar crudo, tiradito, tartar e saladas','Soltar as sobremesas com o preparo da confeitaria','Etiquetar tudo com data e validade'],
+ ['Corte fino e regular','Tempero no último minuto','Organização da praça fria','Montagem no padrão da foto'],['Cru só com a regra do responsável técnico','Atum e peixes de carne escura sempre no frio','Tábua e faca do cru separadas']],
+['entremetier','Entremetier','Cozinha quente','Fazer as bases e as guarnições da casa e tocar a panela, o balcão e a fritura.','Líder da cozinha',
+ ['Produzir caldo de peixe, mole verde, arroz base e base de moqueca','Fazer as guarnições vendidas à parte','Tocar vongole, caldeirada, mexilhão e camarão na frigideira','Comandar a fritadeira e o óleo','Preparar o almoço executivo'],
+ ['Constância nas bases','Gestão de vários tempos ao mesmo tempo','Cuidado com óleo e fritura','Provar antes de mandar'],['Óleo quente e fritadeira','Alérgenos no óleo compartilhado','Resfriar bases de 60 a 10 °C em até 2 h']],
+['conf','Confeiteiro','Cozinha fria','Fazer os doces da carta todos os dias, prontos para sair rápido.','Líder da cozinha',
+ ['Produzir pudim, torta basca, namelaka e caldas','Escrever e seguir as fichas dos doces','Deixar porções prontas para o serviço','Treinar o garde-manger na montagem'],
+ ['Precisão de receita e peso','Planejamento da produção','Montagem simples e rápida'],['Ovos e laticínios no frio','Etiqueta e validade em tudo']],
+['curinga','Curinga','Cozinha quente','Cobrir as folgas sem baixar o padrão em nenhuma praça.','Líder da cozinha',
+ ['Assumir grelha, garde-manger ou entremetier na folga do titular','Seguir o checklist da praça do dia'],['Domínio das três praças','Adaptação rápida'],['As regras de segurança de cada praça']],
+['pia','Pia','Higienização','Manter louça, panelas e cozinha limpas e no lugar, para o serviço não parar.','Líder da cozinha',
+ ['Lavar, secar e devolver louça e panelas às praças','Operar a lava-louças','Retirar o lixo antes de encher','Lavar pias, ralos e piso no fechamento'],
+ ['Ritmo constante','Organização','Atenção à diluição dos produtos'],['Produto químico só na diluição indicada, com luva','Piso seco']]];
+var COMUM=['Conheceu a casa, o manifesto e quem é quem','Leu o guia do cozinheiro','Uniforme, touca e higiene das mãos','Etiqueta: produto, data, validade e nome','Alérgenos da carta e como avisar','Segurança: gás, fogo, facas, extintor e saídas','Como dar o 86 e passar a praça','Exame admissional e documentos com o RH'];
+var TRILHA={
+lider:[['Semana 1',['Rodou um turno inteiro em cada praça','Abriu e fechou a casa com o checklist','Gerou produção e pedido do dia']],['30 dias',['Escala do mês fechada e validada','Mix ajustado com as vendas reais','Avaliou cada pessoa da equipe']],['90 dias',['CMV medido por prato','Revisão da carta com os sócios']]],
+grelha:[['Semana 1',['Monta e lê as zonas da brasa','Recebe peixe: olho, guelra, cheiro e temperatura','Porciona P, M e G na ficha','Monta os seis espetos no padrão','Usa a sonda no peixe e no ancho']],['30 dias',['Peixe no ponto três vezes seguidas, sem ajuda','Polvo e ancho no padrão','Sai no tempo do pedido no pico']],['90 dias',['Treina outra pessoa na grelha','Controla o consumo de carvão']]],
+gm:[['Semana 1',['Política do cru e da temperatura','Corte do crudo e do tiradito','Leite de tigre, aiolis e vinagretes na ficha','Tartar no patacone','Saladas e montagem dos doces']],['30 dias',['Monta tudo no padrão da foto, sem consulta','Validade e etiqueta 100% certas','Pico sem atraso no frio']],['90 dias',['Treina outra pessoa no garde-manger','Propõe ajuste de rendimento das bases']]],
+entremetier:[['Semana 1',['Caldo de peixe do zero','Mole verde com as ervas cruas no fim','Arroz base e as guarnições da carta','Vongole, caldeirada e mexilhão','Mapa da fritadeira e alérgenos']],['30 dias',['Bases sempre iguais, provadas antes','Executivo no tempo do almoço','Óleo filtrado e trocado na regra']],['90 dias',['Treina outra pessoa no entremetier','Ajusta lote pela previsão de venda']]],
+conf:[['Semana 1',['Escreveu as fichas dos doces','Produziu cada doce da carta','Definiu porções por dia']],['30 dias',['Doces iguais todos os dias','Garde-manger monta sozinho']],['90 dias',['Propõe o doce do dia do executivo']]],
+curinga:[['Semana 1',['Um turno em cada praça, com o titular']],['30 dias',['Cobre qualquer praça sozinho']],['90 dias',['Treina novatos na integração']]],
+pia:[['Semana 1',['Diluição de cada produto','Lava-louças: ciclo e temperatura','Ordem de lavagem e onde guarda cada coisa']],['30 dias',['Fecha a pia sem pendência','Nenhuma praça espera louça no pico']],['90 dias',['Ajuda na limpeza pesada semanal']]]};
+var S={};try{S=JSON.parse(localStorage.getItem('fisga_rh')||'{}')}catch(x){}
+function gravar(){try{localStorage.setItem('fisga_rh',JSON.stringify(S))}catch(x){}}
+var TAB='set',CAR='grelha';
+function E(t,a,x){var e=document.createElement(t);for(var k in a||{})e.setAttribute(k,a[k]);if(x!=null)e.textContent=x;return e}
+var TABS=[['set','Setores'],['car','Cargos'],['tre','Treinamento']];
+function tabs(){var r=document.getElementById('tabs');r.textContent='';TABS.forEach(function(t){var b=E('button',{'aria-selected':t[0]===TAB},t[1]);b.onclick=function(){TAB=t[0];desenha();scrollTo(0,0)};r.appendChild(b)})}
+function desenha(){tabs();var m=document.getElementById('m');m.textContent='';({set:vSet,car:vCar,tre:vTre})[TAB](m)}
+function vSet(m){m.appendChild(E('div',{class:'quem'},'Setores da casa'));m.appendChild(E('div',{class:'pr'},'Quem responde a quem, por função. Sem nomes: cada pessoa ocupa um cargo.'));
+ SETORES.forEach(function(s,i){var h=E('h2',{class:s[1]==='frio'?'fr':s[1]==='tr'?'tr':''},s[0]);m.appendChild(h);
+  if(i===1){var d=E('div',{class:'ldr'},'Líder da cozinha');d.appendChild(E('small',{},'com a chefe de apoio'));m.appendChild(d);m.appendChild(E('div',{class:'seta'},'↓ grelha · entremetier · garde-manger · confeitaria · pia'));return}
+  var o=E('div',{class:'org'});s[2].forEach(function(n){var x=E('div',{class:'no'});x.appendChild(E('b',{},n[0]));x.appendChild(document.createTextNode(n[1]));o.appendChild(x)});m.appendChild(o)});
+ m.appendChild(E('p',{class:'rodape'},'Divisão por setor e cargos: proposta a validar com os sócios. Salão, bar e RH entram quando forem estruturados.'))}
+function vCar(m){m.appendChild(E('div',{class:'quem'},'Cargos'));m.appendChild(E('div',{class:'pr'},'O que cada função faz, a quem responde e o que precisa saber.'));
+ CARGOS.forEach(function(c){var d=E('details'),s=E('summary',{},c[1]);s.appendChild(E('small',{},c[2]));d.appendChild(s);
+  d.appendChild(E('div',{class:'k'},'Missão'));d.appendChild(E('p',{class:'pr',style:'color:var(--tinta-2);margin:0'},c[3]));
+  d.appendChild(E('div',{class:'k'},'Responde a'));d.appendChild(E('p',{class:'pr',style:'color:var(--tinta-2);margin:0'},c[4]));
+  [['Responsabilidades',5],['Competências',6],['Segurança',7]].forEach(function(z){d.appendChild(E('div',{class:'k'},z[0]));var u=E('ul');c[z[1]].forEach(function(x){u.appendChild(E('li',{},x))});d.appendChild(u)});
+  var b=E('button',{type:'button',style:'margin-top:12px;width:100%'},'Ver treinamento');b.onclick=function(){TAB='tre';CAR=c[0];desenha();scrollTo(0,0)};d.appendChild(b);m.appendChild(d)});
+ m.appendChild(E('p',{class:'rodape'},'Texto dos cargos: proposta a validar. Segurança de alimentos segue a CVS 3/2026 e o responsável técnico.'))}
+function vTre(m){var c=CARGOS.filter(function(x){return x[0]===CAR})[0];m.appendChild(E('div',{class:'quem'},'Treinamento · '+c[1]));
+ m.appendChild(E('div',{class:'pr'},'Integração comum + trilha da função. Marque o que a pessoa já demonstrou na praça.'));
+ var r=E('div',{class:'row row2',style:'padding:0;margin-bottom:10px'});CARGOS.forEach(function(x){var b=E('button',{'aria-selected':x[0]===CAR},x[1]);b.onclick=function(){CAR=x[0];desenha()};r.appendChild(b)});m.appendChild(r);
+ S[CAR]=S[CAR]||{};var st=S[CAR];
+ var cn=E('div',{class:'campo'},'Pessoa');var ip=E('input',{type:'text',placeholder:'nome (fica só neste celular)'});ip.value=st._nome||'';ip.oninput=function(){st._nome=ip.value;gravar()};cn.appendChild(ip);m.appendChild(cn);
+ var ca=E('div',{class:'campo'},'Avaliador');var ia=E('input',{type:'text',placeholder:'quem acompanhou'});ia.value=st._aval||'';ia.oninput=function(){st._aval=ia.value;gravar()};ca.appendChild(ia);m.appendChild(ca);
+ var bar=E('div',{class:'bar'}),fi=E('i');bar.appendChild(fi);m.appendChild(bar);var ct=E('div',{class:'cont'});m.appendChild(ct);
+ var etapas=[['Integração · dia 1',COMUM]].concat(TRILHA[CAR]),tot=0;
+ function prog(){var n=0;etapas.forEach(function(e){e[1].forEach(function(x){if(st[e[0]+'|'+x])n++})});fi.style.width=(tot?n/tot*100:0)+'%';ct.textContent=n+' de '+tot+' demonstrados'}
+ etapas.forEach(function(e){m.appendChild(E('h2',{},e[0]));e[1].forEach(function(x){tot++;var k=e[0]+'|'+x,l=E('label',{class:'it'+(st[k]?' ok':'')}),cb=E('input',{type:'checkbox'});cb.checked=!!st[k];
+  cb.onchange=function(){st[k]=cb.checked?new Date().toLocaleDateString('pt-BR'):0;l.classList.toggle('ok',cb.checked);gravar();prog()};l.appendChild(cb);var t=E('span');t.appendChild(E('b',{},x));l.appendChild(t);m.appendChild(l)})});
+ prog();
+ var ac=E('div',{class:'acoes'}),w=E('a',{class:'btn cheio2',href:'#',target:'_blank',rel:'noopener'},'Enviar no WhatsApp');w.onclick=function(){w.href='https://wa.me/?text='+encodeURIComponent(txt(c,etapas,st))};
+ var z=E('button',{type:'button'},'Nova pessoa'),arm=0;z.onclick=function(){if(!arm){arm=1;z.textContent='Toque de novo para limpar';return}S[CAR]={};gravar();desenha()};ac.appendChild(w);ac.appendChild(z);m.appendChild(ac);
+ m.appendChild(E('p',{class:'rodape'},'Trilhas: proposta a validar. Os pratos e bases de cada etapa seguem as fichas da casa. Marcações e nomes ficam só neste celular; o site não guarda nomes.'))}
+function txt(c,etapas,st){var s='*FISGA · Treinamento · '+c[1]+'*'+(st._nome?'\n'+st._nome:'')+(st._aval?' · avaliador: '+st._aval:'');
+ etapas.forEach(function(e){s+='\n\n*'+e[0]+'*';e[1].forEach(function(x){var v=st[e[0]+'|'+x];s+='\n'+(v?'✔ '+x+' ('+v+')':'◻ '+x)})});return s}
+desenha();
+</script>
+</body></html>
